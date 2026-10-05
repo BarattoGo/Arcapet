@@ -4,306 +4,613 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ArcaPet | Alimentazione, benessere e cosmetica per cani e gatti</title>
-  <meta name="description" content="ArcaPet: cose buone per cani e gatti. Crocchette, umidi, BARF, snack, integratori e cosmetica naturale. Spedizione gratuita per ordini superiori a 50€.">
-  <meta property="og:title" content="ArcaPet | Alimentazione, benessere e cosmetica per cani e gatti">
-  <meta property="og:description" content="Cose buone per cani e gatti">
-  <meta property="og:image" content="assets/img/logo-trasp-400.png">
-  <meta name="theme-color" content="#002d5c">
+  <meta name="description" content="ArcaPet: cose buone per cani e gatti. Crocchette, umidi, BARF, snack, integratori e cosmetica naturale. Spedizione gratuita per ordini superiori a 50€, spedizione entro 48h.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ArcaPet | Cose buone per cani e gatti">
+  <meta property="og:description" content="Alimentazione di qualità, snack, integratori e cosmetica naturale per i tuoi amici a 4 zampe.">
+  <meta property="og:image" content="assets/img/slide1.jpg">
+  <meta name="theme-color" content="#fbf7f1">
   <link rel="icon" href="assets/img/favicon_cuore.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Plus+Jakarta+Sans:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/slide1.jpg">
   <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Arcapet Preview Environment (test branch) -->
+  <script>document.documentElement.classList.add('js')</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ArcaPet",
+    "legalName": "GIESSE S.r.l.",
+    "url": "https://www.arcapet.it/",
+    "logo": "https://www.arcapet.it/wp-content/uploads/2020/04/logo-trasp-400.png",
+    "email": "info@arcapet.it",
+    "vatID": "02391610033",
+    "sameAs": ["https://www.facebook.com/arcapet.it"]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ============ STICKY MENU (appare allo scroll) ============ -->
-  <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
-    <div class="container sticky-bar__inner">
-      <a href="#" class="sticky-bar__logo"><img src="assets/img/logo-trasp-2.png" alt="ArcaPet" width="200" height="95"></a>
-      <nav class="sticky-bar__nav" id="sticky-nav"></nav>
+  <!-- ============ ICON SPRITE ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-care" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 64 64"><ellipse cx="13" cy="27" rx="6.5" ry="8.5" transform="rotate(-18 13 27)"/><ellipse cx="25" cy="14" rx="6.5" ry="9"/><ellipse cx="39" cy="14" rx="6.5" ry="9"/><ellipse cx="51" cy="27" rx="6.5" ry="8.5" transform="rotate(18 51 27)"/><path d="M32 31c-9.5 0-19 10.5-19 19 0 6 5 8.5 10.5 7.5 3.2-.6 5.3-2.2 8.5-2.2s5.3 1.6 8.5 2.2C46 58.5 51 56 51 50c0-8.5-9.5-19-19-19Z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class="announce" role="region" aria-label="Informazioni sul servizio">
+    <div class="announce__track">
+      <ul class="announce__list">
+        <li><svg class="ico"><use href="#i-truck"/></svg>Spedizione gratuita per ordini superiori a 50€</li>
+        <li><svg class="ico"><use href="#i-zap"/></svg>La spedizione parte entro 48h</li>
+        <li><svg class="ico"><use href="#i-lock"/></svg>Pagamento on-line sicuro</li>
+        <li><svg class="ico"><use href="#i-heart"/></svg>La soddisfazione del cliente è al centro del nostro lavoro</li>
+        <li><svg class="ico"><use href="#i-truck"/></svg>Spedizione gratuita per ordini superiori a 50€</li>
+        <li><svg class="ico"><use href="#i-zap"/></svg>La spedizione parte entro 48h</li>
+        <li><svg class="ico"><use href="#i-lock"/></svg>Pagamento on-line sicuro</li>
+        <li><svg class="ico"><use href="#i-heart"/></svg>La soddisfazione del cliente è al centro del nostro lavoro</li>
+      </ul>
+      <ul class="announce__list" aria-hidden="true">
+        <li><svg class="ico"><use href="#i-truck"/></svg>Spedizione gratuita per ordini superiori a 50€</li>
+        <li><svg class="ico"><use href="#i-zap"/></svg>La spedizione parte entro 48h</li>
+        <li><svg class="ico"><use href="#i-lock"/></svg>Pagamento on-line sicuro</li>
+        <li><svg class="ico"><use href="#i-heart"/></svg>La soddisfazione del cliente è al centro del nostro lavoro</li>
+        <li><svg class="ico"><use href="#i-truck"/></svg>Spedizione gratuita per ordini superiori a 50€</li>
+        <li><svg class="ico"><use href="#i-zap"/></svg>La spedizione parte entro 48h</li>
+        <li><svg class="ico"><use href="#i-lock"/></svg>Pagamento on-line sicuro</li>
+        <li><svg class="ico"><use href="#i-heart"/></svg>La soddisfazione del cliente è al centro del nostro lavoro</li>
+      </ul>
     </div>
   </div>
 
-  <div class="page">
-
-    <!-- ============ HEADER ============ -->
-    <header class="site-header" id="site-header">
-      <a href="#" class="site-logo" id="site-logo" title="ArcaPet">
-        <img src="assets/img/logo-trasp-400.png" alt="ArcaPet logo" width="400" height="190">
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo" aria-label="ArcaPet — Home">
+        <img src="assets/img/logo-trasp-400.png" alt="ArcaPet" width="400" height="190">
       </a>
 
-      <div class="header-box">
-        <button class="menu-toggle" id="menu-toggle" aria-label="Apri menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-          <em>Menu</em>
-        </button>
+      <nav class="menu" aria-label="Menu principale">
+        <ul class="menu__list">
+          <li><a class="menu__link is-active" href="/" aria-current="page">Home</a></li>
+          <li><a class="menu__link" href="https://www.arcapet.it/chi-siamo/">Chi siamo</a></li>
+          <li class="menu__item">
+            <a class="menu__link" href="https://www.arcapet.it/categoria-prodotto/cani/" aria-haspopup="true">Cani <svg class="ico"><use href="#i-chev"/></svg></a>
+            <div class="drop">
+              <div class="drop__inner">
+                <ul class="drop__list">
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/cani/crocchette/">Crocchette <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/cani/umidi/">Umidi <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/cani/integratori/">Integratori <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/cani/snack/">Snack <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/cani/igiene-pulizia-cani/">Igiene e pulizia <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                </ul>
+                <a class="drop__feature drop__feature--dog" href="https://www.arcapet.it/categoria-prodotto/cani/">
+                  <svg class="drop__paw"><use href="#i-paw"/></svg>
+                  <span>Tutto per il tuo cane</span>
+                  <strong>Scopri il mondo Cani</strong>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="https://www.arcapet.it/categoria-prodotto/gatti/" aria-haspopup="true">Gatti <svg class="ico"><use href="#i-chev"/></svg></a>
+            <div class="drop">
+              <div class="drop__inner">
+                <ul class="drop__list">
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/crocchette-gatti/">Crocchette <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/umidi-gatti/">Umidi <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/integratori-it/">Integratori <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/snack-gatti/">Snack <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                  <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/igiene-e-pulizia/">Igiene e pulizia <svg class="ico"><use href="#i-arrow"/></svg></a></li>
+                </ul>
+                <a class="drop__feature drop__feature--cat" href="https://www.arcapet.it/categoria-prodotto/gatti/">
+                  <svg class="drop__paw"><use href="#i-paw"/></svg>
+                  <span>Tutto per il tuo gatto</span>
+                  <strong>Scopri il mondo Gatti</strong>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li><a class="menu__link" href="https://www.arcapet.it/contatti/">Contatti</a></li>
+        </ul>
+      </nav>
 
-        <nav class="main-nav" id="main-nav" aria-label="Menu principale">
-          <ul class="main-nav__list">
-            <li class="is-current"><a href="#">Home</a></li>
-            <li><a href="https://www.arcapet.it/chi-siamo/">Chi siamo</a></li>
-            <li class="has-sub">
-              <a href="https://www.arcapet.it/categoria-prodotto/cani/">Cani</a>
-              <button class="sub-toggle" aria-label="Apri sottomenu Cani"></button>
-              <ul class="sub-menu">
+      <div class="header__actions">
+        <a href="https://www.facebook.com/arcapet.it" target="_blank" rel="noopener" class="icon-btn icon-btn--fb" aria-label="ArcaPet su Facebook"><svg class="ico ico--fill"><use href="#i-fb"/></svg></a>
+        <a href="https://www.arcapet.it/my-account/" class="icon-btn" aria-label="Il mio account"><svg class="ico"><use href="#i-user"/></svg></a>
+        <a href="https://www.arcapet.it/carrello/" class="icon-btn icon-btn--cart" aria-label="Carrello">
+          <svg class="ico"><use href="#i-bag"/></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+        <button class="burger" id="burger" aria-label="Apri menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MOBILE DRAWER ============ -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__backdrop" data-close></div>
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="drawer__head">
+        <img src="assets/img/logo-trasp-400.png" alt="ArcaPet" width="400" height="190">
+        <button class="icon-btn icon-btn--soft" data-close aria-label="Chiudi menu"><svg class="ico"><use href="#i-close"/></svg></button>
+      </div>
+      <nav class="drawer__nav" aria-label="Menu mobile">
+        <a href="/" style="--i:0" aria-current="page">Home</a>
+        <a href="https://www.arcapet.it/chi-siamo/" style="--i:1">Chi siamo</a>
+        <details style="--i:2">
+          <summary>Cani <svg class="ico"><use href="#i-chev"/></svg></summary>
+          <ul>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/cani/">Tutti i prodotti</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/cani/crocchette/">Crocchette</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/cani/umidi/">Umidi</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/cani/integratori/">Integratori</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/cani/snack/">Snack</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/cani/igiene-pulizia-cani/">Igiene e pulizia</a></li>
+          </ul>
+        </details>
+        <details style="--i:3">
+          <summary>Gatti <svg class="ico"><use href="#i-chev"/></svg></summary>
+          <ul>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/">Tutti i prodotti</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/crocchette-gatti/">Crocchette</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/umidi-gatti/">Umidi</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/integratori-it/">Integratori</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/snack-gatti/">Snack</a></li>
+            <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/igiene-e-pulizia/">Igiene e pulizia</a></li>
+          </ul>
+        </details>
+        <a href="https://www.arcapet.it/contatti/" style="--i:4">Contatti</a>
+        <a href="https://www.arcapet.it/my-account/" style="--i:5">Il mio account</a>
+      </nav>
+      <div class="drawer__foot">
+        <a href="mailto:info@arcapet.it" class="btn btn--primary btn--block"><svg class="ico"><use href="#i-mail"/></svg>info@arcapet.it</a>
+        <a href="https://www.facebook.com/arcapet.it" target="_blank" rel="noopener" class="btn btn--ghost btn--block"><svg class="ico ico--fill"><use href="#i-fb"/></svg>Seguici su Facebook</a>
+      </div>
+    </aside>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="In evidenza">
+      <div class="container">
+        <div class="hero__card" id="hero" data-slide="0">
+          <span class="hero__glow hero__glow--a" aria-hidden="true"></span>
+          <span class="hero__glow hero__glow--b" aria-hidden="true"></span>
+          <svg class="hero__paw hero__paw--1" aria-hidden="true"><use href="#i-paw"/></svg>
+          <svg class="hero__paw hero__paw--2" aria-hidden="true"><use href="#i-paw"/></svg>
+          <svg class="hero__paw hero__paw--3" aria-hidden="true"><use href="#i-paw"/></svg>
+
+          <div class="hero__content">
+            <h1 class="eyebrow">
+              <span class="eyebrow__dot"><svg class="ico"><use href="#i-heart"/></svg></span>
+              ArcaPet · Cose buone per cani e gatti
+            </h1>
+
+            <div class="hero__titles" aria-live="polite">
+              <p class="hero__title"><span class="w" style="--i:0"><span>Il</span></span> <span class="w" style="--i:1"><span>meglio</span></span> <em class="w" style="--i:2"><span>per</span></em> <em class="w" style="--i:3"><span>loro</span></em></p>
+              <p class="hero__title"><span class="w" style="--i:0"><span>Il</span></span> <span class="w" style="--i:1"><span>cibo</span></span> <em class="w" style="--i:2"><span>più</span></em> <em class="w" style="--i:3"><span>buono</span></em></p>
+              <p class="hero__title"><span class="w" style="--i:0"><span>Ama</span></span> <span class="w" style="--i:1"><span>chi</span></span> <em class="w" style="--i:2"><span>ti</span></em> <em class="w" style="--i:3"><span>ama</span></em></p>
+              <p class="hero__title"><span class="w" style="--i:0"><span>Spedizione</span></span> <em class="w" style="--i:1"><span>gratuita</span></em></p>
+            </div>
+
+            <p class="hero__lead">Alimentazione di qualità, snack, integratori e cosmetica di ispirazione naturale per il benessere dei tuoi amici a 4 zampe.</p>
+
+            <div class="hero__cta">
+              <a href="https://www.arcapet.it/categoria-prodotto/cani/" class="btn btn--primary">Scopri Cani <svg class="ico"><use href="#i-arrow"/></svg></a>
+              <a href="https://www.arcapet.it/categoria-prodotto/gatti/" class="btn btn--ghost">Scopri Gatti <svg class="ico"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+
+          <div class="hero__stage" id="hero-stage">
+            <svg class="hero__arc" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="arcGrad" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0" stop-color="#002d5c"/>
+                  <stop offset=".5" stop-color="#2b2f45"/>
+                  <stop offset="1" stop-color="#ed931b"/>
+                </linearGradient>
+              </defs>
+              <path d="M6 18 Q500 150 994 18" pathLength="1"/>
+            </svg>
+
+            <div class="slides">
+              <figure class="slide is-active">
+                <img src="assets/img/slide1.jpg" alt="Cani e gatti di diverse razze seduti insieme" width="1300" height="635" fetchpriority="high">
+              </figure>
+              <figure class="slide">
+                <img src="assets/img/cibo-buono.jpg" alt="Basset hound e gatto con una ciotola di crocchette" width="1300" height="635" loading="lazy">
+              </figure>
+              <figure class="slide">
+                <img src="assets/img/ama-ama-2.jpg" alt="Due cuccioli e un gattino" width="1300" height="635" loading="lazy">
+              </figure>
+              <figure class="slide slide--photo">
+                <img src="assets/img/pexels-arthousestudio-6017740-scaled.jpg" alt="Cane in attesa accanto ai pacchi consegnati" width="2560" height="1950" loading="lazy">
+                <figcaption class="slide__badge"><svg class="ico"><use href="#i-truck"/></svg>per ordini superiori a 50€</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="hero__chip hero__chip--1" aria-hidden="true">
+            <span class="hero__chip-ico"><svg class="ico"><use href="#i-zap"/></svg></span>
+            <span><strong>Ordini veloci</strong><small>Spedizione entro 48h</small></span>
+          </div>
+          <div class="hero__chip hero__chip--2" aria-hidden="true">
+            <span class="hero__chip-ico hero__chip-ico--navy"><svg class="ico"><use href="#i-truck"/></svg></span>
+            <span><strong>Spedizione gratuita</strong><small>Sopra i 50€</small></span>
+          </div>
+
+          <div class="hero__controls">
+            <button class="round-btn" id="hero-prev" aria-label="Slide precedente"><svg class="ico"><use href="#i-arrow-l"/></svg></button>
+            <div class="hero__dots" id="hero-dots" role="tablist" aria-label="Seleziona slide"></div>
+            <button class="round-btn" id="hero-next" aria-label="Slide successiva"><svg class="ico"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CATEGORIE ============ -->
+    <section class="section cats" aria-labelledby="cats-title">
+      <div class="container">
+        <header class="section-head section-head--center" data-reveal>
+          <p class="kicker">Shop per categoria</p>
+          <h2 class="h2" id="cats-title">Per chi stai <em>cercando?</em></h2>
+        </header>
+
+        <div class="cats__grid" data-stagger>
+          <article class="cat cat--dog">
+            <div class="cat__content">
+              <span class="cat__tag"><svg class="ico ico--fill"><use href="#i-paw"/></svg>Per il tuo cane</span>
+              <h3 class="cat__title"><a href="https://www.arcapet.it/categoria-prodotto/cani/">Cani</a></h3>
+              <p>Crocchette, umidi, snack, integratori e articoli per l’igiene: tutto per il benessere del tuo cane.</p>
+              <ul class="cat__chips">
                 <li><a href="https://www.arcapet.it/categoria-prodotto/cani/crocchette/">Crocchette</a></li>
                 <li><a href="https://www.arcapet.it/categoria-prodotto/cani/umidi/">Umidi</a></li>
                 <li><a href="https://www.arcapet.it/categoria-prodotto/cani/integratori/">Integratori</a></li>
                 <li><a href="https://www.arcapet.it/categoria-prodotto/cani/snack/">Snack</a></li>
                 <li><a href="https://www.arcapet.it/categoria-prodotto/cani/igiene-pulizia-cani/">Igiene e pulizia</a></li>
               </ul>
-            </li>
-            <li class="has-sub">
-              <a href="https://www.arcapet.it/categoria-prodotto/gatti/">Gatti</a>
-              <button class="sub-toggle" aria-label="Apri sottomenu Gatti"></button>
-              <ul class="sub-menu">
+            </div>
+            <span class="cat__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
+            <div class="cat__media" aria-hidden="true"><img src="assets/img/slide1.jpg" alt="" width="1300" height="635" loading="lazy"></div>
+          </article>
+
+          <article class="cat cat--cat">
+            <div class="cat__content">
+              <span class="cat__tag"><svg class="ico ico--fill"><use href="#i-paw"/></svg>Per il tuo gatto</span>
+              <h3 class="cat__title"><a href="https://www.arcapet.it/categoria-prodotto/gatti/">Gatti</a></h3>
+              <p>Dalle crocchette agli umidi BARF, snack e integratori: il meglio per il tuo gatto, ogni giorno.</p>
+              <ul class="cat__chips">
                 <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/crocchette-gatti/">Crocchette</a></li>
                 <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/umidi-gatti/">Umidi</a></li>
                 <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/integratori-it/">Integratori</a></li>
                 <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/snack-gatti/">Snack</a></li>
                 <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/igiene-e-pulizia/">Igiene e pulizia</a></li>
               </ul>
-            </li>
-            <li><a href="https://www.arcapet.it/contatti/">Contatti</a></li>
-            <li><a href="https://www.arcapet.it/my-account/">Il mio account</a></li>
-          </ul>
-        </nav>
-
-        <div class="header-tools">
-          <a href="https://www.facebook.com/arcapet.it" target="_blank" rel="noopener" class="social-fb" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
-          </a>
-          <a href="https://www.arcapet.it/carrello/" class="cart-btn" id="cart-btn" aria-label="Carrello">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM7.2 14.8h9.9c.75 0 1.4-.41 1.75-1.03L22 7.5 20.25 6.5l-3.15 6.3H7.53L3.27 4H1v2h1.98l3.6 7.59-1.35 2.44C4.52 17.37 5.48 19 7 19h12v-2H7l1.1-2.2Z"/></svg>
-            <span class="cart-count" id="cart-count">0</span>
-          </a>
+            </div>
+            <span class="cat__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span>
+            <div class="cat__media" aria-hidden="true"><img src="assets/img/cibo-buono.jpg" alt="" width="1300" height="635" loading="lazy"></div>
+          </article>
         </div>
       </div>
-    </header>
-
-    <!-- ============ SLIDER ============ -->
-    <section class="hero-slider" id="hero-slider" aria-label="Slideshow">
-      <div class="slides">
-        <div class="slide is-active">
-          <img src="assets/img/slide1.jpg" alt="Cani e gatti di diverse razze seduti insieme" width="1300" height="635">
-          <div class="slide__caption slide__caption--top">
-            <span class="cap-box">IL MEGLIO PER LORO ❤️</span>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="assets/img/cibo-buono.jpg" alt="Basset hound e gatto con una ciotola di crocchette" width="1300" height="635" loading="lazy">
-          <div class="slide__caption slide__caption--top">
-            <span class="cap-box">IL CIBO PIU' BUONO 😋</span>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="assets/img/ama-ama-2.jpg" alt="Due cuccioli e un gattino" width="1300" height="635" loading="lazy">
-          <div class="slide__caption slide__caption--top">
-            <span class="cap-box">AMA CHI TI AMA ❤️</span>
-          </div>
-        </div>
-        <div class="slide">
-          <img src="assets/img/pexels-arthousestudio-6017740-scaled.jpg" alt="Cane in attesa accanto ai pacchi consegnati" width="2560" height="1950" loading="lazy" class="slide__img--cover">
-          <div class="slide__caption slide__caption--bottom-left">
-            <span class="cap-tag">per ordini superiori a 50€</span>
-            <span class="cap-box">SPEDIZIONE GRATUITA</span>
-          </div>
-        </div>
-      </div>
-
-      <button class="slider-arrow slider-arrow--prev" id="slider-prev" aria-label="Slide precedente">
-        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
-      </button>
-      <button class="slider-arrow slider-arrow--next" id="slider-next" aria-label="Slide successiva">
-        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
-      </button>
-      <div class="slider-dots" id="slider-dots" role="tablist"></div>
     </section>
 
-    <main id="main">
-
-      <!-- ============ SERVIZI (3 box colorati) ============ -->
-      <section class="services" aria-label="I nostri servizi">
-        <article class="service service--grey">
-          <h3>COSMETICA</h3>
-          <p>Cosmetica per cani di ispirazione naturale. Ci prendiamo cura della bellezza e del benessere dei nostri amici nel rispetto dell’ambiente in cui viviamo. I prodotti sono testati dagli uomini e quindi buoni per i nostri amici a 4 zampe.</p>
-        </article>
-        <article class="service service--navy">
-          <h3>CIBO E SALUTE</h3>
-          <p>Alimenti secchi con la migliore scelta | alta qualità di cibo umido lavorato con carne selezionata | alimenti complementari | snack deliziosi e quasi senza grassi a base di carne al 100% | articoli per l´igiene</p>
-        </article>
-        <article class="service service--orange">
-          <h3><a href="mailto:info@arcapet.it">I NOSTRI CONTATTI</a></h3>
-          <p>La soddisfazione del cliente è molto importante per noi, per questo motivo siamo sempre a disposizione per supportarti per proporre al meglio i nostri prodotti. Ci potete contattare via mail.</p>
-          <a href="mailto:info@arcapet.it" class="rm-button">info@arcapet.it</a>
-        </article>
-      </section>
-
-      <!-- ============ LE NOVITÀ ============ -->
-      <section class="products-band products-band--navy" id="novita">
-        <header class="band-head">
-          <h1>Le novità</h1>
-          <h2>Siamo sempre alla ricerca di nuovi prodotti per i nostri amici a 4 zampe</h2>
+    <!-- ============ SERVIZI ============ -->
+    <section class="section section--tight services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Il mondo ArcaPet</p>
+          <h2 class="h2" id="services-title">Benessere a 360°, <em>dalla ciotola al pelo</em></h2>
         </header>
 
-        <div class="carousel" data-carousel data-dots-color="orange">
-          <div class="carousel__track">
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/aldog-puppy-junior-artica/" class="product__thumb"><img src="assets/img/Screenshot-26.png" alt="ALDOG PUPPY JUNIOR ARTICA" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/aldog-puppy-junior-artica/">ALDOG PUPPY JUNIOR ARTICA</a></h3>
-              <p class="product__price">3,30€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/aldog-pate-whitewave/" class="product__thumb"><img src="assets/img/Screenshot-25.png" alt="ALDOG PATE WHITEWAVE" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-whitewave/">ALDOG PATE WHITEWAVE</a></h3>
-              <p class="product__price">3,20€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/aldog-pate-artica/" class="product__thumb"><img src="assets/img/Screenshot-24.png" alt="ALDOG PATE ARTICA" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-artica/">ALDOG PATE ARTICA</a></h3>
-              <p class="product__price">3,20€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/aldog-pate-lamb/" class="product__thumb"><img src="assets/img/Screenshot-23.png" alt="ALDOG PATE LAMB" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-lamb/">ALDOG PATE LAMB</a></h3>
-              <p class="product__price">3,20€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/aldog-pate-puppy-junior-pork/" class="product__thumb"><img src="assets/img/Screenshot-22.png" alt="ALDOG PATE PUPPY JUNIOR PORK" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-puppy-junior-pork/">ALDOG PATE PUPPY JUNIOR PORK</a></h3>
-              <p class="product__price">3,30€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/aldog-pate-beef/" class="product__thumb"><img src="assets/img/Screenshot-21.png" alt="ALDOG PATE BEEF" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-beef/">ALDOG PATE BEEF</a></h3>
-              <p class="product__price">3,20€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/aldog-pate-pork/" class="product__thumb"><img src="assets/img/Screenshot-20.png" alt="ALDOG PATE PORK" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-pork/">ALDOG PATE PORK</a></h3>
-              <p class="product__price">3,20€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-tacchino-con-mirtilli/" class="product__thumb"><img src="assets/img/pic-22500200-BARF-Putenschmankerl-200g-649x1024.jpg" alt="BARF MENU COMPLETO – Trito di Tacchino con Mirtilli" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-tacchino-con-mirtilli/">BARF MENU COMPLETO – Trito di Tacchino con Mirtilli</a></h3>
-              <p class="product__price">2,70€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-manzo-con-patate-dolci/" class="product__thumb"><img src="assets/img/pic-22501200-BARF-Rinderschmaus-200g-649x1024.jpg" alt="BARF MENU COMPLETO – Trito di Manzo con patate dolci" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-manzo-con-patate-dolci/">BARF MENU COMPLETO – Trito di Manzo con patate dolci</a></h3>
-              <p class="product__price">2,70€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-cervo-con-patate-dolci/" class="product__thumb"><img src="assets/img/pic-22502200-BARF-Wild-Schmortopf-200g-1024x1024.png" alt="BARF MENU COMPLETO – Trito di Cervo con patate dolci" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-cervo-con-patate-dolci/">BARF MENU COMPLETO – Trito di Cervo con patate dolci</a></h3>
-              <p class="product__price">2,70€ <small>IVA inclusa</small></p>
-            </article>
-          </div>
-          <div class="carousel__dots"></div>
-        </div>
-      </section>
+        <div class="services__grid" data-stagger>
+          <article class="svc svc--stone">
+            <span class="svc__icon"><svg class="ico"><use href="#i-sparkles"/></svg></span>
+            <h3>Cosmetica</h3>
+            <p>Cosmetica per cani di ispirazione naturale. Ci prendiamo cura della bellezza e del benessere dei nostri amici nel rispetto dell’ambiente in cui viviamo. I prodotti sono testati dagli uomini e quindi buoni per i nostri amici a 4 zampe.</p>
+            <a href="https://www.arcapet.it/categoria-prodotto/cani/igiene-pulizia-cani/" class="svc__link">Scopri la cosmetica <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <svg class="svc__paw" aria-hidden="true"><use href="#i-paw"/></svg>
+          </article>
 
-      <!-- ============ I PIÙ VENDUTI ============ -->
-      <section class="products-band products-band--orange" id="piu-venduti">
-        <header class="band-head">
-          <h2 class="band-title">I più venduti</h2>
-          <p class="band-sub">I prodottti preferiti dai nostri amici a 4 zampe</p>
+          <article class="svc svc--navy">
+            <span class="svc__icon"><svg class="ico"><use href="#i-leaf"/></svg></span>
+            <h3>Cibo e salute</h3>
+            <ul class="svc__list">
+              <li><svg class="ico"><use href="#i-check"/></svg>Alimenti secchi con la migliore scelta</li>
+              <li><svg class="ico"><use href="#i-check"/></svg>Alta qualità di cibo umido lavorato con carne selezionata</li>
+              <li><svg class="ico"><use href="#i-check"/></svg>Alimenti complementari</li>
+              <li><svg class="ico"><use href="#i-check"/></svg>Snack deliziosi e quasi senza grassi a base di carne al 100%</li>
+              <li><svg class="ico"><use href="#i-check"/></svg>Articoli per l’igiene</li>
+            </ul>
+            <svg class="svc__paw" aria-hidden="true"><use href="#i-paw"/></svg>
+          </article>
+
+          <article class="svc svc--orange">
+            <span class="svc__icon"><svg class="ico"><use href="#i-mail"/></svg></span>
+            <h3>I nostri contatti</h3>
+            <p>La soddisfazione del cliente è molto importante per noi, per questo motivo siamo sempre a disposizione per supportarti per proporre al meglio i nostri prodotti. Ci potete contattare via mail.</p>
+            <div class="svc__actions">
+              <a href="mailto:info@arcapet.it" class="btn btn--light">info@arcapet.it <svg class="ico"><use href="#i-arrow"/></svg></a>
+              <button class="icon-btn icon-btn--glass" data-copy="info@arcapet.it" aria-label="Copia indirizzo email"><svg class="ico"><use href="#i-copy"/></svg></button>
+            </div>
+            <svg class="svc__paw" aria-hidden="true"><use href="#i-paw"/></svg>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LE NOVITÀ ============ -->
+    <section class="section products" id="novita" aria-labelledby="novita-title" data-rail>
+      <div class="container">
+        <header class="section-head section-head--split" data-reveal>
+          <div>
+            <p class="kicker">Nuovi arrivi</p>
+            <h2 class="h2" id="novita-title">Le <em>novità</em></h2>
+            <p class="section-sub">Siamo sempre alla ricerca di nuovi prodotti per i nostri amici a 4 zampe</p>
+          </div>
+          <div class="rail-nav">
+            <button class="rail-btn" data-prev aria-label="Prodotti precedenti"><svg class="ico"><use href="#i-arrow-l"/></svg></button>
+            <button class="rail-btn" data-next aria-label="Prodotti successivi"><svg class="ico"><use href="#i-arrow"/></svg></button>
+          </div>
         </header>
+      </div>
 
-        <div class="carousel" data-carousel data-dots-color="navy">
-          <div class="carousel__track">
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/senior/" class="product__thumb"><img src="assets/img/senior.jpg" alt="Senior light" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/senior/">Senior light</a></h3>
-              <p class="product__price">3,99€ – 57,90€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/mini-adult-con-carne-fresca/" class="product__thumb"><img src="assets/img/mini-adult-fresh-meat.jpg" alt="Mini Adult fresh meat" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/mini-adult-con-carne-fresca/">Mini Adult fresh meat</a></h3>
-              <p class="product__price">5,40€ – 21,90€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/mini-hyposensitive-anatra-patate/" class="product__thumb"><img src="assets/img/mini-hyposensitive-anatra-patate.jpg" alt="Mini hyposensitive anatra &amp; patate" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/mini-hyposensitive-anatra-patate/">Mini hyposensitive anatra &amp; patate</a></h3>
-              <p class="product__price">22,90€ – 91,00€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/adult-medium-breed/" class="product__thumb"><img src="assets/img/adult-medium-breed.jpg" alt="Adult medium breed" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/adult-medium-breed/">Adult medium breed</a></h3>
-              <p class="product__price">3,99€ – 56,00€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/adult-large-breed/" class="product__thumb"><img src="assets/img/adult-large-breed.jpg" alt="Adult large breed" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/adult-large-breed/">Adult large breed</a></h3>
-              <p class="product__price">3,90€ – 57,90€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/mini-junior-salmone-e-riso/" class="product__thumb"><img src="assets/img/IMG_2013-1.jpg" alt="Mini Junior Salmone e riso" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/mini-junior-salmone-e-riso/">Mini Junior Salmone e riso</a></h3>
-              <p class="product__price">5,40€ – 21,70€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/junior-agnello-riso/" class="product__thumb"><img src="assets/img/junior-agnello-riso.jpg" alt="Junior agnello &amp; riso" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/junior-agnello-riso/">Junior agnello &amp; riso</a></h3>
-              <p class="product__price">5,15€ – 68,00€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/adult-pesce-riso/" class="product__thumb"><img src="assets/img/adult-pesce-riso.jpg" alt="Adult pesce &amp; riso" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/adult-pesce-riso/">Adult pesce &amp; riso</a></h3>
-              <p class="product__price">5,40€ – 65,00€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/adult-salmone-riso/" class="product__thumb"><img src="assets/img/adult-salmone-riso.jpg" alt="Adult salmone &amp; riso" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/adult-salmone-riso/">Adult salmone &amp; riso</a></h3>
-              <p class="product__price">4,90€ – 65,00€ <small>IVA inclusa</small></p>
-            </article>
-            <article class="product">
-              <a href="https://www.arcapet.it/prodotto/adult-agnello-e-riso/" class="product__thumb"><img src="assets/img/adult-agnello-riso.jpg" alt="Adult agnello e riso" loading="lazy"></a>
-              <h3 class="product__title"><a href="https://www.arcapet.it/prodotto/adult-agnello-e-riso/">Adult agnello e riso</a></h3>
-              <p class="product__price">5,30€ – 68,90€ <small>IVA inclusa</small></p>
-            </article>
-          </div>
-          <div class="carousel__dots"></div>
+      <div class="rail" data-reveal>
+        <div class="rail__track" tabindex="0" aria-label="Carosello novità">
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/aldog-puppy-junior-artica/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/Screenshot-26.png" alt="ALDOG PUPPY JUNIOR ARTICA" width="899" height="764" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Aldog</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/aldog-puppy-junior-artica/">Puppy Junior Artica</a></h3>
+              <div class="card__foot"><p class="price">3,30€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/aldog-pate-whitewave/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/Screenshot-25.png" alt="ALDOG PATE WHITEWAVE" width="864" height="778" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Aldog</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-whitewave/">Paté Whitewave</a></h3>
+              <div class="card__foot"><p class="price">3,20€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/aldog-pate-artica/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/Screenshot-24.png" alt="ALDOG PATE ARTICA" width="872" height="785" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Aldog</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-artica/">Paté Artica</a></h3>
+              <div class="card__foot"><p class="price">3,20€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/aldog-pate-lamb/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/Screenshot-23.png" alt="ALDOG PATE LAMB" width="837" height="737" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Aldog</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-lamb/">Paté Lamb</a></h3>
+              <div class="card__foot"><p class="price">3,20€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/aldog-pate-puppy-junior-pork/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/Screenshot-22.png" alt="ALDOG PATE PUPPY JUNIOR PORK" width="794" height="767" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Aldog</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-puppy-junior-pork/">Paté Puppy Junior Pork</a></h3>
+              <div class="card__foot"><p class="price">3,30€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/aldog-pate-beef/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/Screenshot-21.png" alt="ALDOG PATE BEEF" width="797" height="800" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Aldog</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-beef/">Paté Beef</a></h3>
+              <div class="card__foot"><p class="price">3,20€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/aldog-pate-pork/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/Screenshot-20.png" alt="ALDOG PATE PORK" width="832" height="753" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Aldog</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/aldog-pate-pork/">Paté Pork</a></h3>
+              <div class="card__foot"><p class="price">3,20€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-tacchino-con-mirtilli/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/pic-22500200-BARF-Putenschmankerl-200g-649x1024.jpg" alt="BARF MENU COMPLETO – Trito di Tacchino con Mirtilli" width="649" height="1024" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Dr. Clauder’s · BARF</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-tacchino-con-mirtilli/">Menu completo – Trito di Tacchino con Mirtilli</a></h3>
+              <div class="card__foot"><p class="price">2,70€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-manzo-con-patate-dolci/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/pic-22501200-BARF-Rinderschmaus-200g-649x1024.jpg" alt="BARF MENU COMPLETO – Trito di Manzo con patate dolci" width="649" height="1024" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Dr. Clauder’s · BARF</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-manzo-con-patate-dolci/">Menu completo – Trito di Manzo con patate dolci</a></h3>
+              <div class="card__foot"><p class="price">2,70€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
+          <article class="card">
+            <a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-cervo-con-patate-dolci/" class="card__media" tabindex="-1"><span class="badge">Novità</span><img src="assets/img/barf-cervo-720.jpg" alt="BARF MENU COMPLETO – Trito di Cervo con patate dolci" width="720" height="720" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__brand">Dr. Clauder’s · BARF</p>
+              <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/barf-menu-completo-trito-di-cervo-con-patate-dolci/">Menu completo – Trito di Cervo con patate dolci</a></h3>
+              <div class="card__foot"><p class="price">2,70€<small>IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+            </div>
+          </article>
         </div>
-      </section>
+        <div class="container"><div class="rail__progress"><span></span></div></div>
+      </div>
+    </section>
 
-      <!-- ============ FACILITIES ============ -->
-      <section class="facilities" aria-label="Perché sceglierci">
-        <a href="https://www.arcapet.it/termini-e-condizioni-di-servizio/" class="facility">
-          <img src="assets/img/sicurezza.jpg" alt="" width="60" height="60">
-          <div>
-            <h4>Pagamento on-line sicuro</h4>
-            <p>Compra in tutta sicurezza</p>
-          </div>
-        </a>
-        <a href="https://www.arcapet.it/contatti/" class="facility">
-          <img src="assets/img/attenzione1.jpg" alt="" width="60" height="60">
-          <div>
-            <h4>Attenzione al cliente</h4>
-            <p>La soddisfazione del cliente è al centro del nostro lavoro</p>
-          </div>
-        </a>
-        <a href="https://www.arcapet.it/spedizioni-e-consegne/" class="facility">
-          <img src="assets/img/velocita1.jpg" alt="" width="60" height="60">
-          <div>
-            <h4>Ordini veloci</h4>
-            <p>La spedizione parte entro 48h</p>
-          </div>
-        </a>
-      </section>
-    </main>
-
-    <!-- ============ FOOTER ============ -->
-    <footer class="site-footer">
-      <div class="footer-widgets">
-        <div class="fw fw--logo">
-          <img src="assets/img/logo-trasp-2.png" alt="Arca Pet" width="200" height="95">
+    <!-- ============ I PIÙ VENDUTI ============ -->
+    <section class="band products" id="piu-venduti" aria-labelledby="best-title" data-rail>
+      <div class="band__inner">
+        <div class="container">
+          <header class="section-head section-head--split" data-reveal>
+            <div>
+              <p class="kicker">Best seller</p>
+              <h2 class="h2" id="best-title">I più <em>venduti</em></h2>
+              <p class="section-sub">I prodotti preferiti dai nostri amici a 4 zampe</p>
+            </div>
+            <div class="rail-nav">
+              <button class="rail-btn" data-prev aria-label="Prodotti precedenti"><svg class="ico"><use href="#i-arrow-l"/></svg></button>
+              <button class="rail-btn" data-next aria-label="Prodotti successivi"><svg class="ico"><use href="#i-arrow"/></svg></button>
+            </div>
+          </header>
         </div>
-        <div class="fw">
-          <h3>INFORMAZIONI</h3>
+
+        <div class="rail" data-reveal>
+          <div class="rail__track" tabindex="0" aria-label="Carosello più venduti">
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/senior/" class="card__media" tabindex="-1"><span class="rank">01</span><img src="assets/img/senior.jpg" alt="Senior light" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/senior/">Senior light</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>3,99€<small>fino a 57,90€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/mini-adult-con-carne-fresca/" class="card__media" tabindex="-1"><span class="rank">02</span><img src="assets/img/mini-adult-fresh-meat.jpg" alt="Mini Adult fresh meat" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/mini-adult-con-carne-fresca/">Mini Adult fresh meat</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>5,40€<small>fino a 21,90€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/mini-hyposensitive-anatra-patate/" class="card__media" tabindex="-1"><span class="rank">03</span><img src="assets/img/mini-hyposensitive-anatra-patate.jpg" alt="Mini hyposensitive anatra &amp; patate" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/mini-hyposensitive-anatra-patate/">Mini hyposensitive anatra &amp; patate</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>22,90€<small>fino a 91,00€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/adult-medium-breed/" class="card__media" tabindex="-1"><span class="rank">04</span><img src="assets/img/adult-medium-breed.jpg" alt="Adult medium breed" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/adult-medium-breed/">Adult medium breed</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>3,99€<small>fino a 56,00€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/adult-large-breed/" class="card__media" tabindex="-1"><span class="rank">05</span><img src="assets/img/adult-large-breed.jpg" alt="Adult large breed" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/adult-large-breed/">Adult large breed</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>3,90€<small>fino a 57,90€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/mini-junior-salmone-e-riso/" class="card__media" tabindex="-1"><span class="rank">06</span><img src="assets/img/IMG_2013-1.jpg" alt="Mini Junior Salmone e riso" width="750" height="1000" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/mini-junior-salmone-e-riso/">Mini Junior Salmone e riso</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>5,40€<small>fino a 21,70€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/junior-agnello-riso/" class="card__media" tabindex="-1"><span class="rank">07</span><img src="assets/img/junior-agnello-riso.jpg" alt="Junior agnello &amp; riso" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/junior-agnello-riso/">Junior agnello &amp; riso</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>5,15€<small>fino a 68,00€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/adult-pesce-riso/" class="card__media" tabindex="-1"><span class="rank">08</span><img src="assets/img/adult-pesce-riso.jpg" alt="Adult pesce &amp; riso" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/adult-pesce-riso/">Adult pesce &amp; riso</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>5,40€<small>fino a 65,00€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/adult-salmone-riso/" class="card__media" tabindex="-1"><span class="rank">09</span><img src="assets/img/adult-salmone-riso.jpg" alt="Adult salmone &amp; riso" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/adult-salmone-riso/">Adult salmone &amp; riso</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>4,90€<small>fino a 65,00€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+            <article class="card">
+              <a href="https://www.arcapet.it/prodotto/adult-agnello-e-riso/" class="card__media" tabindex="-1"><span class="rank">10</span><img src="assets/img/adult-agnello-riso.jpg" alt="Adult agnello e riso" width="900" height="900" loading="lazy"></a>
+              <div class="card__body">
+                <p class="card__brand">Dr. Clauder’s</p>
+                <h3 class="card__title"><a href="https://www.arcapet.it/prodotto/adult-agnello-e-riso/">Adult agnello e riso</a></h3>
+                <div class="card__foot"><p class="price"><span class="from">da</span>5,30€<small>fino a 68,90€ · IVA inclusa</small></p><span class="card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></div>
+              </div>
+            </article>
+          </div>
+          <div class="container"><div class="rail__progress"><span></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PERCHÉ SCEGLIERCI ============ -->
+    <section class="section section--tight perks" aria-label="Perché sceglierci">
+      <div class="container perks__grid" data-stagger>
+        <a href="https://www.arcapet.it/termini-e-condizioni-di-servizio/" class="perk">
+          <span class="perk__icon"><svg class="ico"><use href="#i-shield"/></svg></span>
+          <span class="perk__text"><h3>Pagamento on-line sicuro</h3><p>Compra in tutta sicurezza</p></span>
+          <svg class="ico perk__arrow"><use href="#i-arrow"/></svg>
+        </a>
+        <a href="https://www.arcapet.it/contatti/" class="perk">
+          <span class="perk__icon"><svg class="ico"><use href="#i-care"/></svg></span>
+          <span class="perk__text"><h3>Attenzione al cliente</h3><p>La soddisfazione del cliente è al centro del nostro lavoro</p></span>
+          <svg class="ico perk__arrow"><use href="#i-arrow"/></svg>
+        </a>
+        <a href="https://www.arcapet.it/spedizioni-e-consegne/" class="perk">
+          <span class="perk__icon"><svg class="ico"><use href="#i-truck"/></svg></span>
+          <span class="perk__text"><h3>Ordini veloci</h3><p>La spedizione parte entro 48h</p></span>
+          <svg class="ico perk__arrow"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__cta" data-reveal>
+        <p class="footer__claim">Cose buone per <em>cani e gatti.</em></p>
+        <a href="mailto:info@arcapet.it" class="btn btn--primary btn--lg"><svg class="ico"><use href="#i-mail"/></svg>Scrivici a info@arcapet.it</a>
+      </div>
+
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/logo-trasp-400.png" alt="Arca Pet" width="400" height="190" loading="lazy">
+          <p>Alimentazione, snack, integratori e cosmetica di ispirazione naturale per il benessere dei nostri amici a 4 zampe.</p>
+          <a href="https://www.facebook.com/arcapet.it" target="_blank" rel="noopener" class="social" aria-label="ArcaPet su Facebook"><svg class="ico ico--fill"><use href="#i-fb"/></svg></a>
+        </div>
+        <div>
+          <h2 class="footer__title">Informazioni</h2>
           <ul>
             <li><a href="https://www.arcapet.it/spedizioni-e-consegne/">Spedizioni e Consegne</a></li>
             <li><a href="https://www.arcapet.it/termini-e-condizioni-di-servizio/">Termini e Condizioni di servizio</a></li>
@@ -311,27 +618,38 @@
             <li><a href="https://www.iubenda.com/privacy-policy/77545257" target="_blank" rel="noopener">Cookie Policy</a></li>
           </ul>
         </div>
-        <div class="fw">
-          <h3>IL MIO ACCOUNT</h3>
+        <div>
+          <h2 class="footer__title">Il mio account</h2>
           <ul>
             <li><a href="https://www.arcapet.it/my-account/">Il mio account</a></li>
             <li><a href="https://www.arcapet.it/my-account/orders/">I miei ordini</a></li>
+            <li><a href="https://www.arcapet.it/carrello/">Carrello</a></li>
           </ul>
         </div>
-        <div class="fw fw--company">
-          <h5>GIESSE S.r.l. | P.IVA: 02391610033<br>E-mail: <a href="mailto:info@arcapet.it">info@arcapet.it</a></h5>
+        <div>
+          <h2 class="footer__title">Contatti</h2>
+          <address>
+            GIESSE S.r.l.<br>
+            P.IVA: 02391610033<br>
+            <a href="mailto:info@arcapet.it">info@arcapet.it</a>
+          </address>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© <span id="year">2024</span> Copyright di GIESSE S.r.l. Tutti diritti sono riservati</p>
-      </div>
-    </footer>
 
-  </div><!-- /.page -->
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Copyright di GIESSE S.r.l. Tutti i diritti sono riservati</p>
+        <p class="footer__made">Fatto con <svg class="ico ico--fill"><use href="#i-heart"/></svg> per i nostri amici a 4 zampe</p>
+      </div>
+    </div>
+    <div class="footer__mark" aria-hidden="true">ArcaPet</div>
+  </footer>
 
   <button class="to-top" id="to-top" aria-label="Torna su">
-    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M7.4 15.4 6 14l6-6 6 6-1.4 1.4-4.6-4.6z"/></svg>
+    <svg class="to-top__ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="25"/></svg>
+    <svg class="ico"><use href="#i-arrow-up"/></svg>
   </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="assets/js/main.js" defer></script>
 </body>

@@ -1,4 +1,3 @@
-/* ArcaPet — interazioni (vanilla JS, nessuna dipendenza) */
 (() => {
   'use strict';
 
@@ -10,65 +9,57 @@
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 
-  /* ---------- Menu mobile ---------- */
-  const toggle = $('#menu-toggle');
-  const nav = $('#main-nav');
-  toggle?.addEventListener('click', () => {
-    const open = nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', open);
+  /* ---------- Menu mobile (Drawer) ---------- */
+  const burger = $('#burger');
+  const drawer = $('#drawer');
+  const closeBtns = $$('[data-close]', drawer);
+  
+  burger?.addEventListener('click', () => {
+    drawer?.setAttribute('aria-hidden', 'false');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
   });
-  $$('.sub-toggle', nav).forEach(btn =>
-    btn.addEventListener('click', () => btn.parentElement.classList.toggle('is-open'))
-  );
 
-  /* ---------- Sticky menu (clona il menu principale) ---------- */
-  const sticky = $('#sticky-bar');
-  const stickyNav = $('#sticky-nav');
-  if (sticky && stickyNav && nav) {
-    const clone = $('.main-nav__list', nav).cloneNode(true);
-    $$('.sub-toggle', clone).forEach(b => b.remove());
-    stickyNav.appendChild(clone);
-  }
-
-  /* ---------- Scroll: sticky + torna su ---------- */
-  const toTop = $('#to-top');
-  const header = $('#site-header');
-  const onScroll = () => {
-    const y = window.scrollY;
-    const threshold = header ? header.offsetTop + header.offsetHeight + 80 : 200;
-    sticky?.classList.toggle('is-visible', y > threshold);
-    sticky?.setAttribute('aria-hidden', y > threshold ? 'false' : 'true');
-    toTop?.classList.toggle('is-visible', y > 600);
-  };
-  addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-  toTop?.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      drawer?.setAttribute('aria-hidden', 'true');
+      burger?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
 
   /* ---------- Slider hero ---------- */
-  const slider = $('#hero-slider');
-  if (slider) {
-    const slides = $$('.slide', slider);
-    const dotsWrap = $('#slider-dots');
+  const heroCard = $('#hero');
+  if (heroCard) {
+    const slides = $$('.slide', heroCard);
+    const titles = $$('.hero__title', heroCard);
+    const dotsWrap = $('#hero-dots');
     let index = 0;
     let timer;
-    const DELAY = 6000;
+    const DELAY = 5000;
 
     const dots = slides.map((_, i) => {
       const b = document.createElement('button');
       b.setAttribute('role', 'tab');
       b.setAttribute('aria-label', `Vai alla slide ${i + 1}`);
       b.addEventListener('click', () => { go(i); restart(); });
-      dotsWrap.appendChild(b);
+      if (dotsWrap) dotsWrap.appendChild(b);
       return b;
     });
 
     function go(i) {
-      slides[index].classList.remove('is-active');
+      if (slides[index]) slides[index].classList.remove('is-active');
+      if (titles[index]) titles[index].classList.remove('is-active');
+      
       index = (i + slides.length) % slides.length;
+      
       const s = slides[index];
-      // forza il riavvio delle animazioni
-      void s.offsetWidth;
-      s.classList.add('is-active');
+      const t = titles[index];
+      
+      // forza il riavvio
+      if (s) { void s.offsetWidth; s.classList.add('is-active'); }
+      if (t) { void t.offsetWidth; t.classList.add('is-active'); }
+      
       dots.forEach((d, k) => d.setAttribute('aria-selected', k === index));
     }
     const next = () => go(index + 1);
@@ -78,15 +69,15 @@
       if (!reduceMotion) timer = setInterval(next, DELAY);
     };
 
-    $('#slider-next')?.addEventListener('click', () => { next(); restart(); });
-    $('#slider-prev')?.addEventListener('click', () => { prev(); restart(); });
-    slider.addEventListener('mouseenter', () => clearInterval(timer));
-    slider.addEventListener('mouseleave', restart);
+    $('#hero-next')?.addEventListener('click', () => { next(); restart(); });
+    $('#hero-prev')?.addEventListener('click', () => { prev(); restart(); });
+    heroCard.addEventListener('mouseenter', () => clearInterval(timer));
+    heroCard.addEventListener('mouseleave', restart);
 
     // swipe touch
     let startX = 0;
-    slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    slider.addEventListener('touchend', e => {
+    heroCard.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    heroCard.addEventListener('touchend', e => {
       const dx = e.changedTouches[0].clientX - startX;
       if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); restart(); }
     });
@@ -95,79 +86,100 @@
     restart();
   }
 
-  /* ---------- Caroselli prodotti (scroll-snap + dots + autoplay) ---------- */
-  $$('[data-carousel]').forEach(car => {
-    const track = $('.carousel__track', car);
-    const dotsWrap = $('.carousel__dots', car);
-    const items = $$('.product', track);
-    let timer;
+  /* ---------- Caroselli prodotti (Rail) ---------- */
+  $$('[data-rail]').forEach(railSection => {
+    const track = $('.rail__track', railSection);
+    const progressSpan = $('.rail__progress span', railSection);
+    const btnNext = $('[data-next]', railSection);
+    const btnPrev = $('[data-prev]', railSection);
+    const items = $$('.card', track);
+    
+    if (!track || items.length === 0) return;
 
-    const perView = () => {
-      const w = items[0]?.getBoundingClientRect().width || 1;
-      return Math.max(1, Math.round(track.clientWidth / w));
-    };
-    const pages = () => Math.max(1, Math.ceil(items.length - perView() + 1));
-    const step = () => {
-      const a = items[0], b = items[1];
-      return b ? b.offsetLeft - a.offsetLeft : track.clientWidth;
+    const getScrollStep = () => {
+      const itemWidth = items[0].getBoundingClientRect().width;
+      const gap = parseInt(getComputedStyle(track).gap) || 16;
+      return itemWidth + gap;
     };
 
-    function buildDots() {
-      dotsWrap.innerHTML = '';
-      const n = Math.ceil(items.length / perView());
-      for (let i = 0; i < n; i++) {
-        const d = document.createElement('button');
-        d.setAttribute('aria-label', `Pagina ${i + 1}`);
-        d.addEventListener('click', () => {
-          track.scrollTo({ left: i * perView() * step() });
-          restart();
-        });
-        dotsWrap.appendChild(d);
+    const updateProgressAndButtons = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const scrollLeft = track.scrollLeft;
+      
+      // Update progress bar
+      if (progressSpan) {
+        const percentage = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 100;
+        progressSpan.style.width = `${percentage}%`;
       }
-      updateDots();
-    }
-    function updateDots() {
-      const pv = perView();
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      let page = Math.round(track.scrollLeft / (step() * pv));
-      if (track.scrollLeft >= maxScroll - 4) page = dotsWrap.children.length - 1;
-      [...dotsWrap.children].forEach((d, i) => d.setAttribute('aria-selected', i === page));
-    }
-    function advance() {
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      if (track.scrollLeft >= maxScroll - 4) track.scrollTo({ left: 0 });
-      else track.scrollBy({ left: step() });
-    }
-    const restart = () => {
-      clearInterval(timer);
-      if (!reduceMotion) timer = setInterval(advance, 3500);
+      
+      // Update buttons
+      if (btnPrev) btnPrev.disabled = scrollLeft <= 0;
+      if (btnNext) btnNext.disabled = scrollLeft >= maxScroll - 5;
     };
 
-    let raf;
+    btnNext?.addEventListener('click', () => {
+      track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+    });
+
+    btnPrev?.addEventListener('click', () => {
+      track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+    });
+
     track.addEventListener('scroll', () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(updateDots);
+      requestAnimationFrame(updateProgressAndButtons);
     }, { passive: true });
-    car.addEventListener('mouseenter', () => clearInterval(timer));
-    car.addEventListener('mouseleave', restart);
-    car.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
 
-    let rt;
-    addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(buildDots, 150); });
+    window.addEventListener('resize', () => {
+      requestAnimationFrame(updateProgressAndButtons);
+    });
 
-    buildDots();
-    restart();
+    // Init
+    updateProgressAndButtons();
   });
+
+  /* ---------- Header Sticky (Scroll) ---------- */
+  const header = $('#header');
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 100) {
+      if (y > lastY) {
+        // Scroll down - nascondi header
+        header?.classList.add('is-hidden');
+      } else {
+        // Scroll up - mostra header
+        header?.classList.remove('is-hidden');
+      }
+    } else {
+      header?.classList.remove('is-hidden');
+    }
+    lastY = y;
+  }, { passive: true });
 
   /* ---------- Reveal on scroll ---------- */
   if ('IntersectionObserver' in window && !reduceMotion) {
-    const targets = $$('.services, .band-head, .carousel, .facility, .footer-widgets');
-    targets.forEach(el => el.classList.add('reveal'));
+    const targets = $$('[data-reveal], [data-stagger]');
     const io = new IntersectionObserver(entries => {
       entries.forEach(en => {
-        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+        if (en.isIntersecting) {
+          en.target.classList.add('is-in');
+          io.unobserve(en.target);
+        }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     targets.forEach(el => io.observe(el));
   }
+  
+  /* ---------- Copia email ---------- */
+  $$('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const text = btn.getAttribute('data-copy');
+      navigator.clipboard.writeText(text).then(() => {
+        const originalIcon = btn.innerHTML;
+        btn.innerHTML = '<svg class="ico"><use href="#i-check"/></svg>';
+        setTimeout(() => btn.innerHTML = originalIcon, 2000);
+      });
+    });
+  });
+
 })();
