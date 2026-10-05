@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArcaPet | Alimentazione, Benessere e Cosmetica per Cani e Gatti</title>
+  <meta name="description" content="ArcaPet — Cibo naturale, dieta BARF, crocchette premium e cosmetica bio per cani e gatti. Spedizione rapida in 48h, qualità certificata Made in Italy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-50:  #f0fdf6;
+      --green-100: #dcfce9;
+      --green-200: #bbf7d0;
+      --green-300: #86efac;
+      --green-400: #4ade80;
+      --green-500: #22c55e;
+      --green-600: #16a34a;
+      --green-700: #15803d;
+      --green-800: #166534;
+      --green-900: #14532d;
+      --green-950: #052e16;
+      --amber-400: #fbbf24;
+      --amber-500: #f59e0b;
+      --stone-50:  #fafaf9;
+      --stone-100: #f5f5f4;
+      --stone-200: #e7e5e4;
+      --stone-300: #d6d3d1;
+      --stone-400: #a8a29e;
+      --stone-500: #78716c;
+      --stone-600: #57534e;
+      --stone-700: #44403c;
+      --stone-800: #292524;
+      --stone-900: #1c1917;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Outfit', system-ui, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow-card: 0 2px 20px rgba(0,0,0,.07),0 1px 4px rgba(0,0,0,.04);
+      --shadow-elevated: 0 8px 40px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);
+      --transition: .25s cubic-bezier(.4,0,.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);background:var(--stone-50);color:var(--stone-800);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    img{display:block;max-width:100%;}
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    button{cursor:pointer;border:none;background:none;font-family:inherit;}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+    /* ANNOUNCEMENT */
+    #announcement-bar{background:var(--green-950);color:#a7f3c2;font-size:.78rem;font-weight:500;letter-spacing:.02em;padding:9px 24px;text-align:center;}
+    .ann-inner{display:flex;align-items:center;justify-content:center;gap:10px;}
+
+    /* HEADER */
+    #main-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid rgba(0,0,0,.07);transition:box-shadow var(--transition);}
+    #main-header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.08);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--green-950);flex-shrink:0;}
+    .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--green-600),var(--green-800));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 4px 12px rgba(22,163,74,.3);}
+    .logo span.accent{color:var(--green-600);}
+    .main-nav{display:flex;align-items:center;gap:2px;}
+    .nav-link{font-size:.88rem;font-weight:600;color:var(--stone-600);padding:7px 14px;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition);}
+    .nav-link:hover{color:var(--green-700);background:var(--green-50);}
+    .nav-badge{display:inline-block;background:var(--amber-500);color:white;font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 6px;border-radius:99px;margin-left:5px;vertical-align:middle;}
+    .header-actions{display:flex;align-items:center;gap:10px;}
+    .btn-icon{width:40px;height:40px;background:var(--stone-100);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--stone-600);transition:background var(--transition),color var(--transition);position:relative;}
+    .btn-icon:hover{background:var(--green-100);color:var(--green-700);}
+    .cart-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:var(--green-600);color:white;font-size:.65rem;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid white;transition:transform .15s;}
+    .cart-badge.bump{animation:bump .3s ease;}
+    @keyframes bump{0%,100%{transform:scale(1);}50%{transform:scale(1.5);}}
+    .btn-cta-nav{background:linear-gradient(135deg,var(--green-600),var(--green-800));color:white;font-size:.85rem;font-weight:700;padding:9px 18px;border-radius:var(--radius-md);transition:transform var(--transition),box-shadow var(--transition);box-shadow:0 4px 14px rgba(22,163,74,.28);}
+    .btn-cta-nav:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(22,163,74,.38);}
+    .hamburger{display:none;flex-direction:column;gap:5px;width:40px;height:40px;background:var(--stone-100);border-radius:var(--radius-sm);align-items:center;justify-content:center;}
+    .hamburger span{display:block;width:18px;height:2px;background:var(--stone-700);border-radius:2px;transition:transform var(--transition),opacity var(--transition);}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-nav{display:none;flex-direction:column;gap:2px;padding:16px 24px 20px;border-top:1px solid var(--stone-200);background:white;}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{font-size:.92rem;font-weight:600;color:var(--stone-600);padding:10px 14px;border-radius:var(--radius-sm);transition:background var(--transition),color var(--transition);}
+    .mobile-nav a:hover{background:var(--green-50);color:var(--green-700);}
+
+    /* HERO */
+    #hero{min-height:calc(100vh - 110px);display:flex;align-items:center;background:linear-gradient(150deg,#f0fdf6 0%,#fafaf9 55%,#fffbeb 100%);position:relative;overflow:hidden;padding:60px 0;}
+    #hero::before{content:'';position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(34,197,94,.12) 0%,transparent 70%);top:-200px;right:-200px;pointer-events:none;}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-100);color:var(--green-800);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px 5px 8px;border-radius:99px;margin-bottom:20px;border:1px solid rgba(22,163,74,.2);}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:600;line-height:1.12;color:var(--stone-900);letter-spacing:-.02em;margin-bottom:22px;}
+    .hero-title .hl{color:var(--green-700);font-style:italic;}
+    .hero-subtitle{font-size:1.05rem;color:var(--stone-500);line-height:1.7;max-width:460px;margin-bottom:36px;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--green-600),var(--green-800));color:white;font-weight:700;font-size:.92rem;padding:14px 26px;border-radius:var(--radius-lg);box-shadow:0 6px 24px rgba(22,163,74,.32);transition:transform var(--transition),box-shadow var(--transition);}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(22,163,74,.4);}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--stone-700);font-weight:600;font-size:.92rem;padding:13px 24px;border-radius:var(--radius-lg);border:1.5px solid var(--stone-200);transition:border-color var(--transition),background var(--transition),transform var(--transition);}
+    .btn-secondary:hover{border-color:var(--green-400);background:var(--green-50);transform:translateY(-1px);}
+    .hero-stats{display:flex;gap:28px;margin-top:40px;}
+    .stat-value{font-size:1.6rem;font-weight:800;color:var(--stone-900);line-height:1;}
+    .stat-value span{color:var(--green-600);}
+    .stat-label{font-size:.75rem;color:var(--stone-500);margin-top:4px;}
+    .hero-card{background:white;border-radius:var(--radius-xl);box-shadow:var(--shadow-elevated);overflow:hidden;position:relative;}
+    .hero-card img{width:100%;height:420px;object-fit:cover;}
+    .hero-card-badge{position:absolute;top:16px;left:16px;background:white;border-radius:var(--radius-md);padding:8px 14px;font-size:.78rem;font-weight:700;color:var(--green-800);box-shadow:var(--shadow-card);display:flex;align-items:center;gap:6px;}
+    .dot{width:8px;height:8px;background:var(--green-500);border-radius:50%;animation:pulse-dot 2s infinite;}
+    @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5);}50%{box-shadow:0 0 0 6px rgba(34,197,94,0);}}
+    .floating-tag{position:absolute;bottom:-16px;right:24px;background:linear-gradient(135deg,var(--green-700),var(--green-900));color:white;border-radius:var(--radius-lg);padding:14px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 30px rgba(22,163,74,.35);}
+    .ft-icon{font-size:1.6rem;}
+    .ft-title{font-weight:700;font-size:.88rem;}
+    .ft-sub{font-size:.73rem;opacity:.75;margin-top:2px;}
+
+    /* TRUST BAR */
+    #trust-bar{background:white;border-top:1px solid var(--stone-200);border-bottom:1px solid var(--stone-200);padding:24px 0;}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .trust-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:var(--radius-md);transition:background var(--transition);}
+    .trust-item:hover{background:var(--green-50);}
+    .trust-icon{width:44px;height:44px;background:var(--green-50);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--green-700);flex-shrink:0;}
+    .trust-label{font-weight:700;font-size:.85rem;color:var(--stone-800);}
+    .trust-sub{font-size:.75rem;color:var(--stone-500);margin-top:2px;}
+
+    /* SECTION HEADER */
+    .section-header{text-align:center;margin-bottom:52px;}
+    .section-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-700);margin-bottom:10px;}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:600;color:var(--stone-900);letter-spacing:-.02em;line-height:1.2;}
+    .section-subtitle{font-size:.98rem;color:var(--stone-500);max-width:540px;margin:14px auto 0;line-height:1.65;}
+
+    /* CATEGORIES */
+    #categories{padding:90px 0 60px;}
+    .categories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .cat-card{border-radius:var(--radius-xl);overflow:hidden;position:relative;aspect-ratio:4/3;cursor:pointer;display:block;}
+    .cat-bg{width:100%;height:100%;position:absolute;inset:0;transition:transform var(--transition);}
+    .cat-card:hover .cat-bg{transform:scale(1.04);}
+    .cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 60%);}
+    .cat-emoji{font-size:5rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-62%);transition:transform var(--transition);}
+    .cat-card:hover .cat-emoji{transform:translate(-50%,-68%) scale(1.1);}
+    .cat-info{position:absolute;bottom:0;left:0;right:0;padding:20px 22px;color:white;}
+    .cat-name{font-weight:800;font-size:1.15rem;}
+    .cat-count{font-size:.78rem;opacity:.8;margin-top:3px;}
+    .cat-arrow{position:absolute;bottom:20px;right:22px;width:36px;height:36px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;transition:background var(--transition),transform var(--transition);}
+    .cat-card:hover .cat-arrow{background:var(--green-500);transform:translateX(4px);}
+
+    /* PRODUCTS */
+    #featured{padding:80px 0;background:var(--stone-50);}
+    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+    .product-card{background:white;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--stone-200);transition:transform var(--transition),box-shadow var(--transition);display:flex;flex-direction:column;}
+    .product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-elevated);}
+    .product-img{aspect-ratio:1/1;background:var(--stone-100);display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;}
+    .product-badge{position:absolute;top:10px;left:10px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border-radius:99px;}
+    .badge-new{background:var(--green-500);color:white;}
+    .badge-hot{background:#ef4444;color:white;}
+    .badge-bio{background:var(--amber-500);color:white;}
+    .product-body{padding:16px;flex:1;display:flex;flex-direction:column;}
+    .product-category{font-size:.7rem;font-weight:700;color:var(--green-600);letter-spacing:.06em;text-transform:uppercase;}
+    .product-name{font-weight:700;font-size:.95rem;color:var(--stone-900);margin-top:5px;line-height:1.35;}
+    .product-desc{font-size:.78rem;color:var(--stone-500);margin-top:6px;line-height:1.5;flex:1;}
+    .product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--stone-100);}
+    .product-price{font-weight:800;font-size:1.05rem;color:var(--stone-900);}
+    .product-price .from{font-size:.7rem;font-weight:500;color:var(--stone-400);margin-right:2px;}
+    .btn-add{width:36px;height:36px;background:var(--stone-900);color:white;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;transition:background var(--transition),transform var(--transition);}
+    .btn-add:hover{background:var(--green-600);transform:scale(1.08);}
+
+    /* BARF */
+    #barf-section{padding:90px 0;background:var(--green-950);position:relative;overflow:hidden;}
+    #barf-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(34,197,94,.15) 0%,transparent 60%);}
+    .barf-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1;}
+    .barf-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,.15);color:var(--green-400);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:99px;border:1px solid rgba(34,197,94,.25);margin-bottom:18px;}
+    .barf-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:600;color:white;line-height:1.15;margin-bottom:18px;letter-spacing:-.02em;}
+    .barf-title em{color:var(--green-400);font-style:italic;}
+    .barf-desc{color:rgba(255,255,255,.65);line-height:1.7;font-size:.96rem;margin-bottom:32px;}
+    .barf-features{display:flex;flex-direction:column;gap:14px;margin-bottom:36px;}
+    .barf-feature{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.85);font-size:.88rem;font-weight:500;}
+    .barf-fi{width:32px;height:32px;background:rgba(34,197,94,.15);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--green-400);flex-shrink:0;}
+    .btn-primary-light{display:inline-flex;align-items:center;gap:8px;background:var(--green-500);color:white;font-weight:700;font-size:.92rem;padding:14px 26px;border-radius:var(--radius-lg);box-shadow:0 6px 24px rgba(34,197,94,.3);transition:transform var(--transition),box-shadow var(--transition),background var(--transition);}
+    .btn-primary-light:hover{background:var(--green-400);transform:translateY(-2px);box-shadow:0 10px 32px rgba(34,197,94,.4);}
+    .barf-image-card{border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4);}
+    .barf-image-card img{width:100%;height:440px;object-fit:cover;}
+    .barf-floating-tag{position:absolute;bottom:-16px;left:-16px;background:white;border-radius:var(--radius-lg);padding:14px 18px;box-shadow:var(--shadow-elevated);display:flex;align-items:center;gap:10px;}
+    .bft-icon{font-size:1.5rem;}
+    .bft-title{font-weight:700;font-size:.82rem;color:var(--stone-900);}
+    .bft-sub{font-size:.72rem;color:var(--stone-500);margin-top:2px;}
+    .barf-iw{position:relative;}
+
+    /* WHY */
+    #why-us{padding:90px 0;}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .why-card{padding:30px;border-radius:var(--radius-lg);border:1px solid var(--stone-200);background:white;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);}
+    .why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-elevated);border-color:var(--green-200);}
+    .why-icon{width:52px;height:52px;background:var(--green-50);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:var(--green-700);margin-bottom:18px;transition:background var(--transition);}
+    .why-card:hover .why-icon{background:var(--green-100);}
+    .why-title{font-weight:700;font-size:1rem;color:var(--stone-900);margin-bottom:10px;}
+    .why-desc{font-size:.85rem;color:var(--stone-500);line-height:1.65;}
+
+    /* COSMETICA */
+    #cosmetica{padding:90px 0;background:linear-gradient(135deg,#fffbeb 0%,#fafaf9 100%);}
+    .cosmetica-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .cosmetica-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;color:var(--stone-900);line-height:1.2;margin:12px 0 18px;letter-spacing:-.02em;}
+    .cosmetica-desc{font-size:.95rem;color:var(--stone-500);line-height:1.7;margin-bottom:28px;}
+    .cosmetica-items{display:flex;flex-direction:column;gap:16px;}
+    .cos-item{display:flex;gap:16px;align-items:flex-start;}
+    .cos-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px;}
+    .cos-item-title{font-weight:700;font-size:.9rem;color:var(--stone-800);}
+    .cos-item-desc{font-size:.8rem;color:var(--stone-500);margin-top:3px;line-height:1.5;}
+    .cosmetica-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .cos-card{background:white;border-radius:var(--radius-lg);padding:20px;border:1px solid rgba(0,0,0,.07);box-shadow:var(--shadow-card);transition:transform var(--transition),box-shadow var(--transition);text-align:center;}
+    .cos-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-elevated);}
+    .cos-card-emoji{font-size:2.5rem;margin-bottom:10px;}
+    .cos-card-name{font-weight:700;font-size:.85rem;color:var(--stone-800);}
+    .cos-card-price{font-size:.78rem;color:var(--green-600);font-weight:600;margin-top:4px;}
+    .cos-card-cta{display:block;margin-top:12px;background:var(--stone-100);color:var(--stone-700);font-size:.75rem;font-weight:600;padding:7px;border-radius:var(--radius-sm);transition:background var(--transition),color var(--transition);}
+    .cos-card:hover .cos-card-cta{background:var(--green-600);color:white;}
+
+    /* TESTIMONIALS */
+    #testimonials{padding:90px 0;background:white;}
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .test-card{background:var(--stone-50);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--stone-200);position:relative;transition:box-shadow var(--transition),transform var(--transition);}
+    .test-card:hover{box-shadow:var(--shadow-elevated);transform:translateY(-2px);}
+    .test-quote{font-size:2.5rem;color:var(--green-300);line-height:1;margin-bottom:12px;font-family:Georgia,serif;}
+    .test-text{font-size:.88rem;color:var(--stone-600);line-height:1.7;margin-bottom:18px;}
+    .test-stars{color:var(--amber-500);font-size:.8rem;margin-bottom:16px;letter-spacing:2px;}
+    .test-author{display:flex;align-items:center;gap:10px;}
+    .test-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--green-100);}
+    .test-name{font-weight:700;font-size:.85rem;color:var(--stone-800);}
+    .test-pet{font-size:.73rem;color:var(--stone-500);}
+
+    /* CHI SIAMO */
+    #chi-siamo{padding:90px 0;background:var(--stone-50);}
+    .chisiamo-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .chisiamo-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:600;color:var(--stone-900);line-height:1.2;margin:12px 0 20px;letter-spacing:-.02em;}
+    .chisiamo-text{font-size:.95rem;color:var(--stone-500);line-height:1.75;margin-bottom:18px;}
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .stat-box{border-radius:var(--radius-lg);padding:24px;text-align:center;}
+    .stat-box-val{font-size:2.5rem;font-weight:900;line-height:1;}
+    .stat-box-label{font-size:.82rem;margin-top:6px;}
+    .stat-box.light{background:white;border:1px solid var(--stone-200);}
+    .stat-box.light .stat-box-val{color:var(--green-600);}
+    .stat-box.light .stat-box-label{color:var(--stone-500);}
+    .stat-box.green{background:var(--green-600);}
+    .stat-box.green .stat-box-val{color:white;}
+    .stat-box.green .stat-box-label{color:rgba(255,255,255,.8);}
+    .stat-box.dark{background:var(--green-950);}
+    .stat-box.dark .stat-box-val{color:white;}
+    .stat-box.dark .stat-box-label{color:rgba(255,255,255,.6);}
+
+    /* CTA BANNER */
+    #cta-banner{padding:80px 0;background:linear-gradient(135deg,var(--green-700) 0%,var(--green-900) 100%);position:relative;overflow:hidden;text-align:center;}
+    #cta-banner::before{content:'🐾';position:absolute;font-size:14rem;opacity:.06;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+    .cta-inner{position:relative;z-index:1;}
+    .cta-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:600;color:white;margin-bottom:14px;letter-spacing:-.02em;}
+    .cta-sub{color:rgba(255,255,255,.7);font-size:1rem;margin-bottom:32px;}
+    .cta-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+    .btn-white{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--green-800);font-weight:700;font-size:.92rem;padding:14px 28px;border-radius:var(--radius-lg);transition:transform var(--transition),box-shadow var(--transition);box-shadow:0 6px 24px rgba(0,0,0,.12);}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.2);}
+    .btn-outline-white{display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;font-weight:600;font-size:.92rem;padding:13px 26px;border-radius:var(--radius-lg);border:1.5px solid rgba(255,255,255,.5);transition:border-color var(--transition),background var(--transition);}
+    .btn-outline-white:hover{border-color:white;background:rgba(255,255,255,.1);}
+
+    /* FOOTER */
+    #footer{background:var(--stone-900);color:rgba(255,255,255,.75);padding:64px 0 32px;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+    .footer-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.2rem;color:white;margin-bottom:14px;}
+    .footer-logo-icon{width:34px;height:34px;background:var(--green-600);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+    .footer-desc{font-size:.83rem;line-height:1.7;max-width:260px;color:rgba(255,255,255,.55);}
+    .footer-social{display:flex;gap:10px;margin-top:18px;}
+    .footer-social a{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:.85rem;transition:background var(--transition),color var(--transition);}
+    .footer-social a:hover{background:var(--green-600);color:white;}
+    .footer-col-title{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;}
+    .footer-links{display:flex;flex-direction:column;gap:10px;}
+    .footer-links a{font-size:.83rem;color:rgba(255,255,255,.6);transition:color var(--transition);}
+    .footer-links a:hover{color:white;}
+    .footer-divider{border:none;border-top:1px solid rgba(255,255,255,.08);margin:0 0 24px;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:8px;}
+
+    /* CART DRAWER */
+    #cart-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity var(--transition);}
+    #cart-overlay.open{opacity:1;pointer-events:all;}
+    #cart-drawer{position:fixed;top:0;right:0;bottom:0;z-index:201;width:100%;max-width:420px;background:white;box-shadow:-8px 0 48px rgba(0,0,0,.18);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
+    #cart-drawer.open{transform:translateX(0);}
+    .cart-header{padding:20px 24px;border-bottom:1px solid var(--stone-200);display:flex;align-items:center;justify-content:space-between;}
+    .cart-title{font-weight:800;font-size:1.05rem;color:var(--stone-900);}
+    .cart-close{width:32px;height:32px;background:var(--stone-100);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--stone-500);transition:background var(--transition),color var(--transition);}
+    .cart-close:hover{background:var(--stone-200);color:var(--stone-800);}
+    .cart-items-wrap{flex:1;overflow-y:auto;padding:20px 24px;}
+    .cart-empty-state{text-align:center;padding:60px 20px;color:var(--stone-400);}
+    .cart-empty-state .ei{font-size:3rem;margin-bottom:12px;}
+    .cart-empty-state p{font-size:.9rem;}
+    .cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--stone-100);animation:slideIn .25s ease;}
+    @keyframes slideIn{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:translateX(0);}}
+    .ci-thumb{width:56px;height:56px;background:var(--stone-100);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+    .ci-name{font-weight:700;font-size:.85rem;color:var(--stone-900);}
+    .ci-price{font-size:.82rem;color:var(--green-700);font-weight:600;margin-top:4px;}
+    .cart-footer-box{padding:20px 24px;border-top:1px solid var(--stone-200);background:var(--stone-50);}
+    .cart-total{display:flex;justify-content:space-between;font-weight:700;font-size:1rem;color:var(--stone-900);margin-bottom:14px;}
+    .cart-checkout-btn{display:block;width:100%;background:linear-gradient(135deg,var(--green-600),var(--green-800));color:white;font-weight:700;font-size:.95rem;padding:14px;border-radius:var(--radius-md);text-align:center;box-shadow:0 6px 20px rgba(22,163,74,.3);transition:transform var(--transition),box-shadow var(--transition);}
+    .cart-checkout-btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(22,163,74,.4);}
+    .cart-note{font-size:.72rem;color:var(--stone-400);text-align:center;margin-top:10px;}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:.1s;}
+    .reveal-delay-2{transition-delay:.2s;}
+    .reveal-delay-3{transition-delay:.3s;}
+    .reveal-delay-4{transition-delay:.4s;}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .hero-grid,.barf-grid,.cosmetica-grid,.chisiamo-grid{grid-template-columns:1fr;gap:40px;}
+      .trust-grid{grid-template-columns:1fr 1fr;}
+      .barf-iw{order:-1;}
+    }
+    @media(max-width:768px){
+      .main-nav,.btn-cta-nav{display:none;}
+      .hamburger{display:flex;}
+      .categories-grid{grid-template-columns:1fr;}
+      .products-grid{grid-template-columns:1fr 1fr;}
+      .why-grid,.test-grid{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .cosmetica-cards{grid-template-columns:1fr 1fr;}
+      .stats-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:480px){
+      .products-grid,.footer-grid,.cosmetica-cards{grid-template-columns:1fr;}
+      .cta-actions,.hero-actions{flex-direction:column;align-items:center;}
+      .btn-primary,.btn-secondary{justify-content:center;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div id="announcement-bar">
+  <div class="ann-inner">
+    🚚 Spedizione <strong>GRATUITA</strong> per ordini superiori a €50 &nbsp;·&nbsp; 📦 Consegna in 24/48h con corriere espresso
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="main-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo" id="logo-link">
+        <div class="logo-icon">🐾</div>
+        <span>ARCA<span class="accent">PET</span></span>
+      </a>
+      <nav class="main-nav">
+        <a href="#categories" class="nav-link">Cani</a>
+        <a href="#categories" class="nav-link">Gatti</a>
+        <a href="#barf-section" class="nav-link">Dieta BARF <span class="nav-badge">Nuovo</span></a>
+        <a href="#cosmetica" class="nav-link">Igiene & Cosmesi</a>
+        <a href="#chi-siamo" class="nav-link">Chi Siamo</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-cta-nav" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})" id="btn-shop">Acquista Ora</button>
+        <button class="btn-icon" id="cart-btn" onclick="toggleCart()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+        <button class="hamburger" id="ham-btn" onclick="toggleNav()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#categories" onclick="closeNav()">🐶 Cani</a>
+      <a href="#categories" onclick="closeNav()">🐱 Gatti</a>
+      <a href="#barf-section" onclick="closeNav()">🥩 Dieta BARF</a>
+      <a href="#cosmetica" onclick="closeNav()">🧴 Igiene & Cosmesi</a>
+      <a href="#chi-siamo" onclick="closeNav()">ℹ️ Chi Siamo</a>
+      <a href="mailto:info@arcapet.it" onclick="closeNav()">✉️ Contattaci</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Qualità Certificata · Made in Italy
+        </div>
+        <h1 class="hero-title reveal reveal-delay-1">
+          Nutrizione naturale<br>per chi ti ama<br><span class="hl">incondizionatamente</span>.
+        </h1>
+        <p class="hero-subtitle reveal reveal-delay-2">
+          Dalla dieta BARF completa alle migliori crocchette ipoallergeniche, fino alla cosmetica biologica. Il massimo del benessere per cani e gatti.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#featured" class="btn-primary" id="hero-cta-1">
+            Scopri i Bestseller
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#barf-section" class="btn-secondary" id="hero-cta-2">Linea BARF Fresca</a>
+        </div>
+        <div class="hero-stats reveal reveal-delay-4">
+          <div class="stat"><div class="stat-value">500<span>+</span></div><div class="stat-label">Clienti soddisfatti</div></div>
+          <div class="stat"><div class="stat-value">48<span>h</span></div><div class="stat-label">Consegna garantita</div></div>
+          <div class="stat"><div class="stat-value">100<span>%</span></div><div class="stat-label">Ingredienti naturali</div></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="hero-card">
+          <div class="hero-card-badge"><div class="dot"></div>Spedizione oggi disponibile</div>
+          <img src="./hero_pets.jpg" alt="Golden retriever e gatto con cibo naturale fresco" loading="eager" onerror="this.style.height='420px';this.style.background='linear-gradient(135deg,#d1fae5,#a7f3d0)';this.alt='ArcaPet';">
+        </div>
+        <div class="floating-tag">
+          <div class="ft-icon">🥩</div>
+          <div><div class="ft-title">Dieta BARF Completa</div><div class="ft-sub">Carne fresca selezionata · da 2,70 €</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section id="trust-bar">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div><div class="trust-label">Spedizione rapida 48h</div><div class="trust-sub">Con corriere espresso tracciato</div></div>
+      </div>
+      <div class="trust-item reveal reveal-delay-1">
+        <div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><div class="trust-label">Pagamento sicuro SSL</div><div class="trust-sub">Acquista in totale sicurezza</div></div>
+      </div>
+      <div class="trust-item reveal reveal-delay-2">
+        <div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div><div class="trust-label">Ingredienti selezionati</div><div class="trust-sub">Zero scarti, 100% carni nobili</div></div>
+      </div>
+      <div class="trust-item reveal reveal-delay-3">
+        <div class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div><div class="trust-label">Assistenza dedicata</div><div class="trust-sub">Supporto da esperti via mail</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Esplora</span>
+      <h2 class="section-title">Tutto per i tuoi amici</h2>
+      <p class="section-subtitle">Dalla nutrizione alla cosmesi, trovi tutto quello che serve al benessere del tuo animale.</p>
+    </div>
+    <div class="categories-grid">
+      <a href="https://www.arcapet.it/categoria-prodotto/cani/" class="cat-card reveal" id="cat-cani">
+        <div class="cat-bg" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-emoji">🐶</div>
+        <div class="cat-info"><div class="cat-name">Per i Cani</div><div class="cat-count">Crocchette · Umidi · BARF · Snack · Igiene</div></div>
+        <div class="cat-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="https://www.arcapet.it/categoria-prodotto/gatti/" class="cat-card reveal reveal-delay-1" id="cat-gatti">
+        <div class="cat-bg" style="background:linear-gradient(135deg,#fef3c7,#fde68a);"></div>
+        <div class="cat-overlay" style="background:linear-gradient(to top,rgba(120,53,15,.65) 0%,transparent 60%);"></div>
+        <div class="cat-emoji">🐱</div>
+        <div class="cat-info"><div class="cat-name">Per i Gatti</div><div class="cat-count">Crocchette · Umidi · Integratori · Snack</div></div>
+        <div class="cat-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="#cosmetica" class="cat-card reveal reveal-delay-2" id="cat-cos">
+        <div class="cat-bg" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);"></div>
+        <div class="cat-overlay" style="background:linear-gradient(to top,rgba(46,16,101,.65) 0%,transparent 60%);"></div>
+        <div class="cat-emoji">🧴</div>
+        <div class="cat-info"><div class="cat-name">Igiene & Cosmesi</div><div class="cat-count">Shampoo · Balsami · Profumi · Cura pelo</div></div>
+        <div class="cat-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section id="featured">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">I preferiti dai 4 zampe</span>
+      <h2 class="section-title">Prodotti in Evidenza</h2>
+      <p class="section-subtitle">La selezione più amata dai nostri clienti, con ingredienti di prima scelta e formule bilanciate per ogni esigenza.</p>
+    </div>
+    <div class="products-grid">
+      <article class="product-card reveal" id="prod-salmone">
+        <div class="product-img"><span>🐟</span><span class="product-badge badge-hot">Best</span></div>
+        <div class="product-body">
+          <div class="product-category">Cani · Crocchette</div>
+          <h3 class="product-name">Adult Salmone & Riso</h3>
+          <p class="product-desc">Ipoallergenico per cani adulti con cute sensibile. Formula monoproteica ad alta digeribilità.</p>
+          <div class="product-footer">
+            <div class="product-price"><span class="from">da </span>4,90 €</div>
+            <button class="btn-add" onclick="addToCart('Adult Salmone & Riso','4,90 €','🐟')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card reveal reveal-delay-1" id="prod-cervo">
+        <div class="product-img"><span>🦌</span><span class="product-badge badge-new">New</span></div>
+        <div class="product-body">
+          <div class="product-category">Cani · BARF</div>
+          <h3 class="product-name">BARF Trito di Cervo</h3>
+          <p class="product-desc">Menu completo monoproteico con patate dolci. Carne fresca selezionata, senza additivi.</p>
+          <div class="product-footer">
+            <div class="product-price">2,70 €</div>
+            <button class="btn-add" onclick="addToCart('BARF Trito di Cervo','2,70 €','🦌')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card reveal reveal-delay-2" id="prod-aldog">
+        <div class="product-img"><span>🥫</span></div>
+        <div class="product-body">
+          <div class="product-category">Cani · Umidi</div>
+          <h3 class="product-name">Aldog Paté WhiteWave</h3>
+          <p class="product-desc">Cibo umido monoproteico ad alta digeribilità con ingredienti selezionati. Senza coloranti.</p>
+          <div class="product-footer">
+            <div class="product-price">3,20 €</div>
+            <button class="btn-add" onclick="addToCart('Aldog Paté WhiteWave','3,20 €','🥫')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card reveal reveal-delay-3" id="prod-manzo">
+        <div class="product-img"><span>🥩</span><span class="product-badge badge-new">New</span></div>
+        <div class="product-body">
+          <div class="product-category">Cani · BARF</div>
+          <h3 class="product-name">BARF Manzo & Patate Dolci</h3>
+          <p class="product-desc">Trito di manzo fresco surgelato con patate dolci. Alimento completo e bilanciato.</p>
+          <div class="product-footer">
+            <div class="product-price">2,70 €</div>
+            <button class="btn-add" onclick="addToCart('BARF Manzo & Patate','2,70 €','🥩')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card reveal" id="prod-mini">
+        <div class="product-img"><span>🫙</span></div>
+        <div class="product-body">
+          <div class="product-category">Cani · Crocchette</div>
+          <h3 class="product-name">Mini Adult Carne Fresca</h3>
+          <p class="product-desc">Crocchette per razze piccole con carne fresca come primo ingrediente. Alto tenore proteico.</p>
+          <div class="product-footer">
+            <div class="product-price"><span class="from">da </span>5,50 €</div>
+            <button class="btn-add" onclick="addToCart('Mini Adult Carne Fresca','5,50 €','🫙')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card reveal reveal-delay-1" id="prod-senior">
+        <div class="product-img"><span>⭐</span></div>
+        <div class="product-body">
+          <div class="product-category">Cani · Crocchette</div>
+          <h3 class="product-name">Senior Light</h3>
+          <p class="product-desc">Formulato per cani anziani, ridotto contenuto di grassi. Supporta la mobilità articolare.</p>
+          <div class="product-footer">
+            <div class="product-price"><span class="from">da </span>6,00 €</div>
+            <button class="btn-add" onclick="addToCart('Senior Light','6,00 €','⭐')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card reveal reveal-delay-2" id="prod-agnello">
+        <div class="product-img"><span>🐑</span></div>
+        <div class="product-body">
+          <div class="product-category">Cani · Crocchette</div>
+          <h3 class="product-name">Adult Agnello & Riso</h3>
+          <p class="product-desc">Ipoallergenico a base di agnello con riso. Ideale per soggetti con intolleranze alimentari.</p>
+          <div class="product-footer">
+            <div class="product-price"><span class="from">da </span>4,90 €</div>
+            <button class="btn-add" onclick="addToCart('Adult Agnello & Riso','4,90 €','🐑')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="product-card reveal reveal-delay-3" id="prod-tacchino">
+        <div class="product-img"><span>🫐</span><span class="product-badge badge-bio">Bio</span></div>
+        <div class="product-body">
+          <div class="product-category">Cani · BARF</div>
+          <h3 class="product-name">BARF Tacchino & Mirtilli</h3>
+          <p class="product-desc">Menu completo con tacchino fresco e mirtilli antiossidanti. Ricco di vitamine naturali.</p>
+          <div class="product-footer">
+            <div class="product-price">2,70 €</div>
+            <button class="btn-add" onclick="addToCart('BARF Tacchino & Mirtilli','2,70 €','🫐')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BARF SECTION -->
+<section id="barf-section">
+  <div class="container">
+    <div class="barf-grid">
+      <div>
+        <div class="barf-eyebrow">🌿 Linea BARF · Raw Food Completo</div>
+        <h2 class="barf-title reveal">Il cibo <em>naturale</em><br>come madre natura<br>ha creato.</h2>
+        <p class="barf-desc reveal reveal-delay-1">La dieta BARF (Biologically Appropriate Raw Food) è l'alimentazione più vicina a quella naturale. I nostri menu BARF sono completi, bilanciati e pronti all'uso: basta scongelare e servire.</p>
+        <div class="barf-features reveal reveal-delay-2">
+          <div class="barf-feature"><div class="barf-fi"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Carne fresca selezionata al 100% — nessuno scarto</div>
+          <div class="barf-feature"><div class="barf-fi"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Alimento completo e bilanciato — niente integratori aggiuntivi</div>
+          <div class="barf-feature"><div class="barf-fi"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Catena del freddo garantita con pacco isotermico</div>
+          <div class="barf-feature"><div class="barf-fi"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Monoproteico — ideale per soggetti con intolleranze</div>
+        </div>
+        <a href="https://www.arcapet.it/categoria-prodotto/cani/" class="btn-primary-light reveal reveal-delay-3" id="barf-cta">
+          Scopri la linea BARF
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="barf-iw reveal reveal-delay-1">
+        <div class="barf-image-card">
+          <img src="./barf_product.jpg" alt="Prodotto BARF premium con ingredienti freschi naturali" loading="lazy" onerror="this.style.height='440px';this.style.background='linear-gradient(135deg,#052e16,#14532d)';this.alt='';">
+        </div>
+        <div class="barf-floating-tag">
+          <div class="bft-icon">❄️</div>
+          <div><div class="bft-title">Catena del freddo garantita</div><div class="bft-sub">Pacco isotermico incluso nella spedizione</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Perché sceglierci</span>
+      <h2 class="section-title">Il benessere del tuo animale è la nostra missione</h2>
+      <p class="section-subtitle">Da anni selezioniamo solo il meglio per garantire salute, vitalità e felicità ai tuoi amici a quattro zampe.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal" id="why-1">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="why-title">Qualità Garantita</div>
+        <p class="why-desc">Ogni prodotto viene selezionato con cura per garantire il massimo degli standard nutritivi. Solo ingredienti di prima scelta, senza compromessi.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1" id="why-2">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="why-title">Spedizione Express 48h</div>
+        <p class="why-desc">I tuoi ordini partono entro 24 ore. Corrieri espressi con tracciamento real-time. Per la linea BARF, pacco isotermico incluso.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2" id="why-3">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="why-title">Supporto di Esperti</div>
+        <p class="why-desc">Il nostro team è sempre disponibile per consigliarti il prodotto giusto. Risposta personalizzata via mail in tempi brevi.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3" id="why-4">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="why-title">Ispirazione Naturale</div>
+        <p class="why-desc">Tutti i prodotti rispettano l'ambiente e sono formulati con ingredienti naturali. Cosmetica testata sugli umani, sicura per i tuoi animali.</p>
+      </div>
+      <div class="why-card reveal" id="why-5">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="why-title">Pagamenti Sicuri</div>
+        <p class="why-desc">Acquista in tranquillità con i principali metodi di pagamento. Connessione SSL certificata per proteggere ogni transazione.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1" id="why-6">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <div class="why-title">Selezione Costante</div>
+        <p class="why-desc">Aggiorniamo continuamente il catalogo con le ultime novità del settore pet food. Sempre alla ricerca dei prodotti migliori per i tuoi animali.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COSMETICA -->
+<section id="cosmetica">
+  <div class="container">
+    <div class="cosmetica-grid">
+      <div>
+        <span class="section-eyebrow reveal">Ispirazione Naturale</span>
+        <h2 class="cosmetica-title reveal reveal-delay-1">Cosmetica bio per il benessere di cani e gatti</h2>
+        <p class="cosmetica-desc reveal reveal-delay-2">Ci prendiamo cura della bellezza dei nostri amici nel rispetto dell'ambiente. Prodotti formulati con ingredienti naturali, testati sugli umani e sicuri per i tuoi animali a 4 zampe.</p>
+        <div class="cosmetica-items reveal reveal-delay-3">
+          <div class="cos-item"><div class="cos-icon">🌿</div><div><div class="cos-item-title">Formulazioni Bio Certificate</div><div class="cos-item-desc">Ingredienti botanici selezionati, senza parabeni né solfati aggressivi per la pelle.</div></div></div>
+          <div class="cos-item"><div class="cos-icon">✨</div><div><div class="cos-item-title">Pelo Lucido e Sano</div><div class="cos-item-desc">Formule arricchite con oli essenziali e vitamine per un mantello brillante tutto l'anno.</div></div></div>
+          <div class="cos-item"><div class="cos-icon">🌱</div><div><div class="cos-item-title">Rispetto per l'Ambiente</div><div class="cos-item-desc">Packaging ecosostenibile e ingredienti a basso impatto ambientale.</div></div></div>
+        </div>
+      </div>
+      <div class="cosmetica-cards reveal reveal-delay-2">
+        <div class="cos-card" id="cos-shampoo"><div class="cos-card-emoji">🧴</div><div class="cos-card-name">Shampoo Naturale Delicato</div><div class="cos-card-price">14,50 €</div><button class="cos-card-cta" onclick="addToCart('Shampoo Naturale','14,50 €','🧴')">Aggiungi</button></div>
+        <div class="cos-card" id="cos-balsamo"><div class="cos-card-emoji">💚</div><div class="cos-card-name">Balsamo Ristrutturante</div><div class="cos-card-price">16,90 €</div><button class="cos-card-cta" onclick="addToCart('Balsamo Ristrutturante','16,90 €','💚')">Aggiungi</button></div>
+        <div class="cos-card" id="cos-spray"><div class="cos-card-emoji">🌸</div><div class="cos-card-name">Spray Profumato Fresh</div><div class="cos-card-price">11,00 €</div><button class="cos-card-cta" onclick="addToCart('Spray Profumato Fresh','11,00 €','🌸')">Aggiungi</button></div>
+        <div class="cos-card" id="cos-deter"><div class="cos-card-emoji">🫧</div><div class="cos-card-name">Detergente Orecchie</div><div class="cos-card-price">9,50 €</div><button class="cos-card-cta" onclick="addToCart('Detergente Orecchie','9,50 €','🫧')">Aggiungi</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Recensioni Clienti</span>
+      <h2 class="section-title">Cosa dicono di noi</h2>
+      <p class="section-subtitle">La soddisfazione dei nostri clienti è la nostra migliore ricompensa.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal" id="test-1">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">Da quando ho iniziato con la dieta BARF di ArcaPet, il mio Labrador è rinato! Pelo lucidissimo, più energia e finalmente ha smesso di grattarsi. Prodotti eccellenti!</p>
+        <div class="test-author"><div class="test-avatar">👩</div><div><div class="test-name">Martina R.</div><div class="test-pet">Cliente con Labrador Retriever</div></div></div>
+      </div>
+      <div class="test-card reveal reveal-delay-1" id="test-2">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">Finalmente un ecommerce pet serio! Crocchette ipoallergeniche per il mio gatto e consegna velocissima. Il supporto via mail è stato prezioso per la scelta.</p>
+        <div class="test-author"><div class="test-avatar">👨</div><div><div class="test-name">Luca M.</div><div class="test-pet">Cliente con gatto Persiano</div></div></div>
+      </div>
+      <div class="test-card reveal reveal-delay-2" id="test-3">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">Lo shampoo naturale è fantastico! Il pelo della mia Golden è diventato setoso e non ha più problemi di cute secca. Riordino sempre senza pensarci due volte.</p>
+        <div class="test-author"><div class="test-avatar">👩</div><div><div class="test-name">Sofia P.</div><div class="test-pet">Cliente con Golden Retriever</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SIAMO -->
+<section id="chi-siamo">
+  <div class="container">
+    <div class="chisiamo-grid">
+      <div>
+        <span class="section-eyebrow reveal">La nostra storia</span>
+        <h2 class="chisiamo-title reveal reveal-delay-1">Nati per amore degli animali</h2>
+        <p class="chisiamo-text reveal reveal-delay-2">ArcaPet nasce dalla passione per il benessere degli animali domestici. Selezioniamo solo prodotti di alta qualità, dalla nutrizione alla cosmetica, perché crediamo che i tuoi amici a quattro zampe meritino il massimo.</p>
+        <p class="chisiamo-text reveal reveal-delay-3">La soddisfazione del cliente è al centro del nostro lavoro: siamo sempre disponibili per supportarti nella scelta dei prodotti più adatti al tuo animale.</p>
+        <a href="mailto:info@arcapet.it" class="btn-primary reveal reveal-delay-4" id="contact-cta" style="display:inline-flex;">✉️ Contattaci ora</a>
+      </div>
+      <div class="stats-grid reveal reveal-delay-2">
+        <div class="stat-box light"><div class="stat-box-val">500+</div><div class="stat-box-label">Clienti soddisfatti</div></div>
+        <div class="stat-box green"><div class="stat-box-val">48h</div><div class="stat-box-label">Consegna express</div></div>
+        <div class="stat-box dark"><div class="stat-box-val">100%</div><div class="stat-box-label">Ingredienti naturali</div></div>
+        <div class="stat-box light"><div class="stat-box-val">4.9★</div><div class="stat-box-label">Rating clienti</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta-banner">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Pronto a fare felice il tuo animale?</h2>
+      <p class="cta-sub">Scopri la nostra selezione premium di alimenti naturali e cosmetica bio.<br>Spedizione gratuita per ordini superiori a €50.</p>
+      <div class="cta-actions">
+        <a href="#featured" class="btn-white" id="cta-shop">🛍️ Vai allo Shop</a>
+        <a href="mailto:info@arcapet.it" class="btn-outline-white" id="cta-contact">✉️ Scrivi a info@arcapet.it</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><div class="footer-logo-icon">🐾</div><span>ARCAPET</span></div>
+        <p class="footer-desc">Alimentazione naturale, benessere e cosmetica per cani e gatti. Qualità certificata, spedizione rapida, passione per gli animali.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/arcapet.it" target="_blank" rel="noopener" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="mailto:info@arcapet.it" title="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Per i Cani</div>
+        <ul class="footer-links">
+          <li><a href="https://www.arcapet.it/categoria-prodotto/cani/crocchette/">Crocchette</a></li>
+          <li><a href="https://www.arcapet.it/categoria-prodotto/cani/umidi/">Umidi & Paté</a></li>
+          <li><a href="https://www.arcapet.it/categoria-prodotto/cani/integratori/">Integratori</a></li>
+          <li><a href="https://www.arcapet.it/categoria-prodotto/cani/snack/">Snack e Premi</a></li>
+          <li><a href="https://www.arcapet.it/categoria-prodotto/cani/igiene-pulizia-cani/">Igiene & Pulizia</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Per i Gatti</div>
+        <ul class="footer-links">
+          <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/crocchette-gatti/">Crocchette</a></li>
+          <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/umidi-gatti/">Umidi & Paté</a></li>
+          <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/integratori-it/">Integratori</a></li>
+          <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/snack-gatti/">Snack e Premi</a></li>
+          <li><a href="https://www.arcapet.it/categoria-prodotto/gatti/igiene-e-pulizia/">Igiene & Pulizia</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Informazioni</div>
+        <ul class="footer-links">
+          <li><a href="https://www.arcapet.it/chi-siamo/">Chi Siamo</a></li>
+          <li><a href="https://www.arcapet.it/contatti/">Contatti</a></li>
+          <li><a href="https://www.arcapet.it/spedizioni-e-consegne/">Spedizioni & Consegne</a></li>
+          <li><a href="https://www.arcapet.it/termini-e-condizioni-di-servizio/">Termini e Condizioni</a></li>
+          <li><a href="https://www.iubenda.com/privacy-policy/77545257">Privacy Policy</a></li>
+          <li><a href="https://www.arcapet.it/my-account/">Il Mio Account</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>© 2024 GIESSE S.r.l. | P.IVA: 02391610033 — Tutti i diritti riservati</span>
+      <span>Realizzato con ❤️ per i tuoi animali</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART -->
+<div id="cart-overlay" onclick="toggleCart()"></div>
+<aside id="cart-drawer">
+  <div class="cart-header">
+    <h2 class="cart-title">Il tuo Carrello 🛍️</h2>
+    <button class="cart-close" onclick="toggleCart()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items-wrap" id="cart-items-list">
+    <div class="cart-empty-state" id="cart-empty"><div class="ei">🛒</div><p>Il carrello è vuoto.<br>Aggiungi qualcosa di buono!</p></div>
+  </div>
+  <div class="cart-footer-box">
+    <div class="cart-total"><span>Totale stimato</span><span id="cart-total-price">€ 0,00</span></div>
+    <button class="cart-checkout-btn" id="cart-checkout" onclick="alert('Demo: procedura di checkout non attiva in questa anteprima.')">Procedi all\'ordine →</button>
+    <p class="cart-note">⚠️ Anteprima grafica dimostrativa per ArcaPet</p>
+  </div>
+</aside>
+
+<script>
+  var cartItems=[];var cartOpen=false;
+  function toggleCart(){cartOpen=!cartOpen;document.getElementById('cart-drawer').classList.toggle('open',cartOpen);document.getElementById('cart-overlay').classList.toggle('open',cartOpen);document.body.style.overflow=cartOpen?'hidden':'';}
+  function addToCart(n,p,e){cartItems.push({name:n,price:p,emoji:e});renderCart();updateBadge();if(!cartOpen)toggleCart();}
+  function renderCart(){var l=document.getElementById('cart-items-list');var em=document.getElementById('cart-empty');var tot=document.getElementById('cart-total-price');if(cartItems.length===0){em.style.display='block';tot.textContent='€ 0,00';return;}em.style.display='none';l.querySelectorAll('.cart-item').forEach(function(el){el.remove();});cartItems.forEach(function(item){var d=document.createElement('div');d.className='cart-item';d.innerHTML='<div class="ci-thumb">'+item.emoji+'</div><div><div class="ci-name">'+item.name+'</div><div class="ci-price">'+item.price+'</div></div>';l.appendChild(d);});var sum=0;cartItems.forEach(function(item){var num=parseFloat(item.price.replace('da ','').replace(',','.').replace(' €','').trim());if(!isNaN(num))sum+=num;});tot.textContent='€ '+sum.toFixed(2).replace('.',',');}
+  function updateBadge(){var b=document.getElementById('cart-count');b.textContent=cartItems.length;b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump');}
+  window.addEventListener('scroll',function(){document.getElementById('main-header').classList.toggle('scrolled',window.scrollY>30);},{passive:true});
+  var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+  function toggleNav(){var n=document.getElementById('mobile-nav');var b=document.getElementById('ham-btn');n.classList.toggle('open');b.classList.toggle('open');}
+  function closeNav(){document.getElementById('mobile-nav').classList.remove('open');document.getElementById('ham-btn').classList.remove('open');}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cartOpen)toggleCart();});
+</script>
+</body>
+</html>
