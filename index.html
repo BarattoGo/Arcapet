@@ -649,6 +649,27 @@
     <svg class="ico"><use href="#i-arrow-up"/></svg>
   </button>
 
+  <!-- ============ MOBILE BOTTOM TAB BAR ============ -->
+  <nav class="mobile-tab-bar" aria-label="Navigazione mobile">
+    <a href="/" class="tab-item is-active" aria-current="page">
+      <svg class="ico"><use href="#i-paw"/></svg>
+      <span>Home</span>
+    </a>
+    <button class="tab-item" aria-controls="drawer" aria-expanded="false" onclick="document.getElementById('burger').click()">
+      <svg class="ico" style="transform: rotate(90deg);"><use href="#i-chev"/></svg>
+      <span>Menu</span>
+    </button>
+    <a href="https://www.arcapet.it/carrello/" class="tab-item tab-item--cart">
+      <svg class="ico"><use href="#i-bag"/></svg>
+      <span>Carrello</span>
+      <span class="cart-count">0</span>
+    </a>
+    <a href="https://www.arcapet.it/my-account/" class="tab-item">
+      <svg class="ico"><use href="#i-user"/></svg>
+      <span>Account</span>
+    </a>
+  </nav>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="assets/js/main.js" defer></script>
